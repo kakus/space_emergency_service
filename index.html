@@ -1,0 +1,66 @@
+<html>
+   <head>
+      <title>Space Emergency Services</title>
+   </head>
+   <body onload="init();">
+      <canvas id="canvas" width="800" height="600" style="background-color:#333333;" ></canvas>
+   </body>
+
+   <script type="text/javascript" src="lib/Box2dWeb-2.1.a.3.js"></script>
+   <script type="text/javascript" src="lib/yepnope.1.5.3-min.js"></script>
+   <script type="text/javascript" src='lib/easeljs-0.6.0.min.js'></script>
+   <script type="text/javascript" src='lib/tweenjs-0.4.0.min.js'></script>
+         
+
+   <script type="text/javascript">
+      function init() {
+
+          "use strict";
+
+          /* Creating namspace */
+          window.Ses = {
+             Core: {},
+             Engine: {},
+             Physic: {},
+             Entities: {},
+             Sound: {},
+             log: function(string) {
+                console.log(string);
+             },
+             err: function(string) {
+                console.log('Err: '+string);
+             }
+          };
+
+          /* Scripts that need to be loaded before we can run game. */
+          var scripts = [
+             "core/Class.js",
+             "core/Entity.js",
+             "engine/Constans.js",
+             "engine/Engine.js",
+             "engine/Physic.js",
+             "engine/View.js",
+             "engine/GameView.js",
+             "entities/SpaceShip.js",
+             "entities/SpaceRock.js",
+             "entities/SpaceShipWithRope.js",
+             "entities/Grasper.js",
+             "entities/Sensor.js",
+             "entities/MapBoundarySensor.js",
+             "entities/CircleSensor.js",
+             "entities/RectangleSensor.js",
+             "entities/JetExhaustParticle.js",
+             "engine/Factory.js"
+          ];
+
+          yepnope({
+             load: scripts,
+             complete: function() {
+                Ses.Engine.init(document.getElementById('canvas'));
+                Ses.Engine.loadMaps();
+                Ses.Engine.changeView(Ses.Engine.GameView);
+             }
+          });
+      }
+</script>
+</html>
