@@ -1,15 +1,21 @@
 <html>
    <head>
       <title>Space Emergency Services</title>
+      <link rel="stylesheet" type="text/css" href="fonts/titillium/stylesheet.css">
+      <link rel="stylesheet" type="text/css" href="ui/ui.css">
+
    </head>
    <body onload="init();">
-      <canvas id="canvas" width="800" height="600" style="background-color:#333333;" ></canvas>
+      <div id="game_div">
+      <canvas id="canvas" width="1000" height="600"></canvas>
+      </div>
    </body>
 
    <script type="text/javascript" src="lib/Box2dWeb-2.1.a.3.js"></script>
    <script type="text/javascript" src="lib/yepnope.1.5.3-min.js"></script>
    <script type="text/javascript" src='lib/easeljs-0.6.0.min.js'></script>
    <script type="text/javascript" src='lib/tweenjs-0.4.0.min.js'></script>
+   <script type="text/javascript" src='lib/stats.min.js'></script>
          
 
    <script type="text/javascript">
@@ -50,7 +56,9 @@
              "entities/CircleSensor.js",
              "entities/RectangleSensor.js",
              "entities/JetExhaustParticle.js",
-             "engine/Factory.js"
+             "engine/Factory.js",
+             "ui/Ui.js",
+             "ui/CssUi.js"
           ];
 
           yepnope({
@@ -59,6 +67,7 @@
                 Ses.Engine.init(document.getElementById('canvas'));
                 Ses.Engine.loadMaps();
                 Ses.Engine.changeView(Ses.Engine.GameView);
+                Ses.Engine.showStats();
              }
           });
       }

@@ -8,6 +8,7 @@ Ses.Physic = {
 
    onBeginContactCallbacks: [],
    onEndContactCallbacks: [],
+   onPostSolveContacCallbacks: [],
 
    jointsToCreate: [],
    jointsToRemove: [],
@@ -101,45 +102,38 @@ Ses.Physic = {
    initContactListener: function()
    {
       var contactListener = new Box2D.Dynamics.b2ContactListener();
-      contactListener.BeginContact = this.onBeginContactHandler;
-      contactListener.EndContact =   this.onEndContactHandler;
+
+      contactListener.BeginContact = this.createContactHandler(
+            this.onBeginContactCallbacks);
+      contactListener.EndContact =   this.createContactHandler(
+            this.onEndContactCallbacks);
+      contactListener.PostSolve = this.createContactHandler(
+            this.onPostSolveContacCallbacks);
+
       Ses.Physic.World.SetContactListener(contactListener);
       this.contactListener = contactListener;
    },
 
-   onBeginContactHandler: function(contact)
+   createContactHandler: function(callbackArray)
    {
-      var bodyA = contact.GetFixtureA().GetBody();
-      var bodyB = contact.GetFixtureB().GetBody();
-
-      for(var i = 0; i < Ses.Physic.onBeginContactCallbacks.length; ++i)
+      return function(contact, impulse)
       {
-         var body = Ses.Physic.onBeginContactCallbacks[i].body;
-         var callback = Ses.Physic.onBeginContactCallbacks[i].callback;
+         var bodyA = contact.GetFixtureA().GetBody();
+         var bodyB = contact.GetFixtureB().GetBody();
 
-         if( bodyA === body)
-            callback.call(undefined, bodyB);
-         else if( bodyB === body )
-            callback.call(undefined, bodyA);
-      }
+         for(var i = 0; i < callbackArray.length; ++i)
+         {
+            var body = callbackArray[i].body;
+            var callback = callbackArray[i].callback;
+
+            if( bodyA === body)
+               callback.call(undefined, bodyB, impulse);
+            else if( bodyB === body )
+               callback.call(undefined, bodyA, impulse);
+         }
+      };
    },
 
-   onEndContactHandler: function(contact)
-   {
-      var bodyA = contact.GetFixtureA().GetBody();
-      var bodyB = contact.GetFixtureB().GetBody();
-
-      for(var i = 0; i < Ses.Physic.onEndContactCallbacks.length; ++i)
-      {
-         var body = Ses.Physic.onEndContactCallbacks[i].body;
-         var callback = Ses.Physic.onEndContactCallbacks[i].callback;
-
-         if( bodyA === body)
-            callback.call(undefined, bodyB);
-         else if( bodyB === body )
-            callback.call(undefined, bodyA);
-      }
-   },
 
    addOnBeginContactListener: function(body, callback)
    {
@@ -155,6 +149,14 @@ Ses.Physic = {
          this.initContactListener();
 
       this.onEndContactCallbacks.push({ body: body, callback: callback });
+   },
+
+   addOnPostSolveContactListener: function(body, callback)
+   {
+      if (!this.contactListener)
+         this.initContactListener();
+
+      this.onPostSolveContacCallbacks.push({ body: body, callback: callback });
    },
 
    createRectangleSesnor: function(x, y, width, height)

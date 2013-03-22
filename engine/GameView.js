@@ -13,13 +13,6 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       this.fakeStage = new createjs.Container();
       this.stage.addChild(this.fakeStage);
 
-      stage.debugText = new createjs.Text("Ses 0.5", "20px Arial", "#ffffff");
-      stage.addChild(stage.debugText);
-      stage.drawDebugText = function(text)
-      {
-         this.debugText.text = text;
-      };
-
       //init physic
       Ses.Physic.World = new Ses.b2World(
          new Ses.b2Vec2(0, 0),
@@ -37,6 +30,8 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
 
       Ses.Physic.World.Step(1/Ses.Engine.FPS, 20, 20);
       Ses.Physic.World.ClearForces();
+
+      Ses.CssUi.update();
 
       for (var i=0; i<this.gameObjects.length; ++i)
          this.gameObjects[i].update(this.fakeStage);
@@ -134,6 +129,7 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       s.x = -o.x*Ses.Engine.Scale*s.scaleX;
       s.y = -o.y*Ses.Engine.Scale*s.scaleY;
 
+      //TODO Remove magick numbers
       var c = this.stage.localToLocal(400, 300, s);
       s.x += (c.x - o.x*30)*s.scaleX;
       s.y += (c.y - o.y*30)*s.scaleY;

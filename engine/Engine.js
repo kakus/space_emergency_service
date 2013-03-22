@@ -48,11 +48,14 @@ Ses.Engine = {
       Ses.b2FixtureDef = Box2D.Dynamics.b2FixtureDef;
       Ses.b2Fixture = Box2D.Dynamics.b2Fixture;
       Ses.b2World = Box2D.Dynamics.b2World;
-      Ses.b2MassData = Box2D.Collision.Shapes.b2MassData;
       Ses.b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
       Ses.b2CircleShape = Box2D.Collision.Shapes.b2CircleShape;
       Ses.b2DebugDraw = Box2D.Dynamics.b2DebugDraw;
+      
 
+      // resize canvas to the window
+      //canvas.width = window.innerWidth;
+      //canvas.height = window.innerHeight;
       // Setup stage element from createjs, which is root object of all that
       // apear in canvas element
       this.stage = new createjs.Stage(canvas);
@@ -65,8 +68,14 @@ Ses.Engine = {
 
    updateStage: function(event)
    {
+      if(Ses.Engine.stats)
+         Ses.Engine.stats.begin();
+
       if(Ses.Engine.currentView)
          Ses.Engine.currentView.update(event);
+
+      if(Ses.Engine.stats)
+         Ses.Engine.stats.end();
    },
 
    changeView: function(View) {
@@ -198,6 +207,18 @@ Ses.Engine = {
 
       for (var prop in srcObj.properties)
          desObj[prop] = srcObj.properties[prop];
+   },
+
+   showStats: function()
+   {
+      this.stats = new Stats();
+      this.stats.setMode(0);
+
+      //this.stats.domElement.style.position = 'relative';
+      //this.stats.domElement.style.right = 0;
+      //this.stats.domElement.style.top = 0;
+      var game_div = document.getElementById('game_div');
+      game_div.appendChild(this.stats.domElement);
    }
 
 };

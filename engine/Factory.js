@@ -1,7 +1,5 @@
 Ses.Engine.Factory = {
 
-   gameView: null,
-
    factoryMethod: {
 
       'SpaceRock': function(des) {
@@ -13,7 +11,9 @@ Ses.Engine.Factory = {
       },
 
       'SpaceShip': function(des) {
-         return new Ses.Entities.SpaceShip(des.x, des.y);
+         var ship = new Ses.Entities.SpaceShip(des.x, des.y);
+         Ses.CssUi.initShipStats(ship);
+         return ship;
       },
 
       'SpaceShipWithRope': function(des) {

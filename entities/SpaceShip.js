@@ -3,6 +3,7 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
    init: function(x, y)
    {
       this._super();
+      this.armour = Ses.Constans.SpaceShip.Armour;
 
       this.body = Ses.Physic.createRectangleObject(
          Ses.Constans.SpaceShip.Width,
@@ -24,6 +25,13 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
          SpaceShip: true
 
       });
+
+      var self = this;
+      Ses.Physic.addOnPostSolveContactListener(this.body,
+            function(contact, impulse) {
+               if (impulse.normalImpulses[0] > 10)
+                 self.armour -= impulse.normalImpulses[0];
+            });
 
       this.initShape();
    },
@@ -49,8 +57,6 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
       var y = fakeStage.getStage().mouseY;
       var p = fakeStage.getStage().localToLocal(x, y, fakeStage);
 
-      fakeStage.getStage().drawDebugText(p);
-
       x = p.x / Ses.Engine.Scale;
       y = p.y / Ses.Engine.Scale;
 
@@ -60,9 +66,7 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
       this.body.SetAngle(Math.atan2(y, x) + Math.PI/2);
 
       if(fakeStage.mousedown)
-      {
          this.startEngine();
-      }
    },
 
    startEngine: function()
@@ -76,10 +80,12 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
 
       this.body.ApplyImpulse(impulse, this.body.GetWorldCenter());
 
+      var speed = this.body.GetLinearVelocity();
       var particle = this.createJetParticle();
+      particle.body.SetLinearVelocity(speed);
       impulse.NegativeSelf();
-      impulse.x *= 1+5*Math.random();
-      impulse.y *= 1+5*Math.random();
+      impulse.x *= 0.03+0.05*Math.random();
+      impulse.y *= 0.03+0.05*Math.random();
       particle.body.ApplyImpulse(impulse, particle.body.GetWorldCenter());
    },
 
