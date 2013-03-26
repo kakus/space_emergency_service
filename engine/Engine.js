@@ -27,8 +27,6 @@ Ses.Engine = {
       Ses.Engine.FPS = 60;
       // Because Box2d use metric system, we have neet to have a scale pixel/meter
       Ses.Engine.Scale = 30;
-      Ses.Engine.ScreenWidth = 800;
-      Ses.Engine.ScreenHeight = 600;
 
       window.onkeydown = this.keyDispatcher;
       window.onkeyup   = this.keyDispatcher;
@@ -51,11 +49,16 @@ Ses.Engine = {
       Ses.b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
       Ses.b2CircleShape = Box2D.Collision.Shapes.b2CircleShape;
       Ses.b2DebugDraw = Box2D.Dynamics.b2DebugDraw;
-      
 
       // resize canvas to the window
-      //canvas.width = window.innerWidth;
-      //canvas.height = window.innerHeight;
+      window.onresize = function() {
+         canvas.width = window.innerWidth;
+         canvas.height = window.innerHeight;
+         Ses.Engine.ScreenWidth = canvas.width;
+         Ses.Engine.ScreenHeight = canvas.height;
+      };
+      window.onresize();
+
       // Setup stage element from createjs, which is root object of all that
       // apear in canvas element
       this.stage = new createjs.Stage(canvas);
@@ -180,6 +183,9 @@ Ses.Engine = {
          }
 
          Ses.Engine.Maps.push(newMap);
+         Ses.Menu.addMap(newMap.name, function() {
+            Ses.log('click');
+         });
       }
 
       Ses.log(Ses.Engine.Maps);
@@ -217,6 +223,7 @@ Ses.Engine = {
       //this.stats.domElement.style.position = 'relative';
       //this.stats.domElement.style.right = 0;
       //this.stats.domElement.style.top = 0;
+      this.stats.domElement.style.opacity = 0.3;
       var game_div = document.getElementById('game_div');
       game_div.appendChild(this.stats.domElement);
    }

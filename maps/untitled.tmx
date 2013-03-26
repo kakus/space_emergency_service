@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="10" tileheight="10">
  <objectgroup name="map1" width="100" height="100">
-  <object type="SpaceShip" x="292" y="245"/>
+  <object type="SpaceShipWithRope" x="130" y="174"/>
   <object type="CircleSensor" x="411" y="55" width="10" height="10">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="SpaceRock" x="248" y="212" width="54" height="52"/>
+  <object type="SpaceRock" x="193" y="169" width="54" height="52"/>
   <object type="RectangleSensor" x="152" y="19" width="30" height="30">
    <properties>
     <property name="O_StopInHere" value=""/>
    </properties>
   </object>
-  <object type="SpaceRock" x="288" y="210" width="54" height="52"/>
-  <object type="SpaceRock" x="315" y="225" width="54" height="52"/>
+  <object type="SpaceRock" x="71" y="68" width="54" height="52"/>
+  <object type="SpaceRock" x="47" y="193" width="54" height="52"/>
   <object type="SpaceRock" x="318" y="257" width="54" height="52"/>
-  <object type="SpaceRock" x="247" y="253" width="54" height="52"/>
+  <object type="SpaceRock" x="155" y="247" width="54" height="52"/>
   <object type="SpaceRock" x="284" y="268" width="54" height="52"/>
  </objectgroup>
 </map>

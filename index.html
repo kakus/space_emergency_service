@@ -7,7 +7,13 @@
    </head>
    <body onload="init();">
       <div id="game_div">
-      <canvas id="canvas" width="1000" height="600"></canvas>
+         <canvas id="canvas" width="1000" height="600"></canvas>
+         <div id="menu">
+            <div id="level-choose" class="ui">
+               <h1> Space Emergency Service </h1>
+               <h2> Choose map: </h2>
+            </div>
+         </div>
       </div>
    </body>
 
@@ -56,9 +62,11 @@
              "entities/CircleSensor.js",
              "entities/RectangleSensor.js",
              "entities/JetExhaustParticle.js",
+             "entities/BrokenShip.js",
              "engine/Factory.js",
              "ui/Ui.js",
-             "ui/CssUi.js"
+             "ui/CssUi.js",
+             "ui/Menu.js"
           ];
 
           yepnope({

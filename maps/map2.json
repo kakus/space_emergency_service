@@ -11,10 +11,10 @@
                     {
 
                     },
-                 "type":"SpaceShip",
+                 "type":"SpaceShipWithRope",
                  "width":0,
-                 "x":292,
-                 "y":245
+                 "x":130,
+                 "y":174
                 }, 
                 {
                  "height":10,
@@ -37,8 +37,8 @@
                     },
                  "type":"SpaceRock",
                  "width":54,
-                 "x":248,
-                 "y":212
+                 "x":193,
+                 "y":169
                 }, 
                 {
                  "height":30,
@@ -61,8 +61,8 @@
                     },
                  "type":"SpaceRock",
                  "width":54,
-                 "x":288,
-                 "y":210
+                 "x":71,
+                 "y":68
                 }, 
                 {
                  "height":52,
@@ -73,8 +73,8 @@
                     },
                  "type":"SpaceRock",
                  "width":54,
-                 "x":315,
-                 "y":225
+                 "x":47,
+                 "y":193
                 }, 
                 {
                  "height":52,
@@ -97,8 +97,8 @@
                     },
                  "type":"SpaceRock",
                  "width":54,
-                 "x":247,
-                 "y":253
+                 "x":155,
+                 "y":247
                 }, 
                 {
                  "height":52,

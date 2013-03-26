@@ -54,6 +54,8 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       }
 
       var sensor = new Ses.Engine.MapBoundarySensor(10, 10);
+      var t = new Ses.Entities.BrokenShip(4, 4);
+      this.addGameObject(t);
       //sensor.setOnObjectLeaveListener( function(object)
       //{
       //   Ses.log('object '+object.GetUserData()+' is leaving');
@@ -129,10 +131,14 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       s.x = -o.x*Ses.Engine.Scale*s.scaleX;
       s.y = -o.y*Ses.Engine.Scale*s.scaleY;
 
-      //TODO Remove magick numbers
-      var c = this.stage.localToLocal(400, 300, s);
-      s.x += (c.x - o.x*30)*s.scaleX;
-      s.y += (c.y - o.y*30)*s.scaleY;
+      var c = this.stage.localToLocal(
+            Ses.Engine.ScreenWidth/2,
+            Ses.Engine.ScreenHeight/2,
+            s);
+
+      var scale = Ses.Engine.Scale;
+      s.x += (c.x - o.x*scale)*s.scaleX;
+      s.y += (c.y - o.y*scale)*s.scaleY;
    },
 
    addMapObjective: function(objective, object)
