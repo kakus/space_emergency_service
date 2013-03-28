@@ -176,6 +176,29 @@ Ses.Physic = {
       return this.createStaticBody(fixtureDef, new Ses.b2Vec2(x, y));
    },
 
+   destroyWorld: function()
+   {
+      this.onBeginContactCallbacks = [];
+      this.onEndContactCallbacks = [];
+      this.onPostSolveContacCallbacks = [];
+      this.contactListener = null;
+
+      var joints = Ses.Physic.World.GetJointList();
+      if (joints)
+         for (var i = 0; i < joints.length; ++i)
+            Ses.Physic.World.DestroyJoint(joints[i]);
+
+      var bodies = Ses.Physic.World.GetBodyList();
+      if (bodies)
+      {
+         if(bodies.length > 0)
+            Ses.err("While destroying world, there are bodies alive !");
+         for(i = 0; i < bodies.length; ++i)
+            Ses.Physic.World.DestroyBody(bodies[i]);
+      }
+
+   },
+
 
    //TODO all underneath
 

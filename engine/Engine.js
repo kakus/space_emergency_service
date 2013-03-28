@@ -139,6 +139,12 @@ Ses.Engine = {
       this.mouseScrollListeners.push(callback);
    },
 
+   clearInputListeners: function()
+   {
+      Ses.Engine.mouseScrollListeners = [];
+      for(var key in Ses.Engine.KeyBindings)
+         Ses.Engine.KeyBindings[key].callbacks = [];
+   },
 
    loadMaps: function ()
    {
@@ -175,21 +181,31 @@ Ses.Engine = {
                width: obj.width / scaleX,
                height: obj.height / scaleY,
                type: obj.type,
-               x: obj.x / scaleX,
-               y: obj.y / scaleY
+               x: obj.x / scaleX + obj.width / scaleX / 2,
+               y: obj.y / scaleY + obj.height / scaleY / 2
             };
             this.flatProperties(obj, newObj);
             newMap.objects.push(newObj);
          }
 
          Ses.Engine.Maps.push(newMap);
-         Ses.Menu.addMap(newMap.name, function() {
-            Ses.log('click');
-         });
+         Ses.Menu.addMap(newMap.name, (function(i) {
+            return function() {
+               Ses.Engine.changeView(Ses.Engine.GameView);
+               Ses.Engine.currentView.initMap(i);
+            };
+         })(i));
       }
 
       Ses.log(Ses.Engine.Maps);
    },
+
+   showDemo: function()
+   {
+      Ses.Engine.changeView(Ses.Engine.GameView);
+      Ses.Engine.currentView.initMap(0);
+   },
+
 
    /*
     * This function help with processing map file. Because Tiled (map editor)
@@ -220,9 +236,6 @@ Ses.Engine = {
       this.stats = new Stats();
       this.stats.setMode(0);
 
-      //this.stats.domElement.style.position = 'relative';
-      //this.stats.domElement.style.right = 0;
-      //this.stats.domElement.style.top = 0;
       this.stats.domElement.style.opacity = 0.3;
       var game_div = document.getElementById('game_div');
       game_div.appendChild(this.stats.domElement);

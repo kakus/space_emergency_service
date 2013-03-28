@@ -5,6 +5,10 @@
  */
 
 Ses.Core.Entity = Class.extend({
+
+   maxHitPoints: 100,
+   currentHitPoints: 10,
+
    init: function() {},
    update: function()
    {
@@ -38,6 +42,16 @@ Ses.Core.Entity = Class.extend({
       };
    },
 
-   body: null,
-   shape: null
+   hit: function(damage)
+   {
+      this.currentHitPoints -= damage;
+      if (this.currentHitPoints <= 0 && this.onDieCallback)
+         this.onDieCallback.call();
+
+   },
+
+   setOnDieListener: function(callback)
+   {
+      this.onDieCallback = callback;
+   }
 });

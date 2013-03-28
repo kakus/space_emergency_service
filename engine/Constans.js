@@ -1,8 +1,7 @@
 Ses.Constans = {
 
    'SpaceShip': {
-      'Width': 0.3,
-      'Height': 0.5,
+      'Radious': 44/30/2,
       'Armour': 100,
       'Density': 8,
       'Rope': {

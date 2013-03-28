@@ -1,22 +1,311 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="10" tileheight="10">
- <objectgroup name="map1" width="100" height="100">
-  <object type="SpaceShipWithRope" x="130" y="174"/>
-  <object type="CircleSensor" x="411" y="55" width="10" height="10">
+ <objectgroup name="DemoMap" width="100" height="100">
+  <object name="BrokenShip" type="BrokenShip" x="222" y="231" width="10" height="10"/>
+  <object name="SpaceRock" type="SpaceRock" x="374" y="190" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="301" y="309" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="188" y="365" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="322" y="458" width="75" height="54">
+   <properties>
+    <property name="fx" value="-7"/>
+    <property name="fy" value="-7"/>
+   </properties>
+  </object>
+  <object name="SpaceRock" type="SpaceRock" x="146" y="206" width="58" height="44"/>
+  <object name="SpaceRock" type="SpaceRock" x="286" y="216" width="24" height="24"/>
+  <object name="SpaceRock" type="SpaceRock" x="412" y="359" width="37" height="32"/>
+  <object name="SpaceRock" type="SpaceRock" x="221" y="487" width="60" height="43"/>
+  <object name="SpaceRock" type="SpaceRock" x="204" y="121" width="64" height="46"/>
+  <object name="SpaceRock" type="SpaceRock" x="101" y="293" width="64" height="46"/>
+  <object name="SpaceRock" type="SpaceRock" x="86" y="124" width="23" height="25"/>
+  <object name="SpaceRock" type="SpaceRock" x="510" y="88" width="245" height="202"/>
+  <object name="SpaceRock" type="SpaceRock" x="82" y="384" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="87" y="449" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="34" y="397" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="-1" y="463" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="47" y="450" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="52" y="515" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="-30" y="286" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="18" y="273" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="23" y="338" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="-24" y="164" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="24" y="151" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="29" y="216" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="341" y="289" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="213" y="375" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="90" y="280" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="30" y="361" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="-7" y="426" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="286" y="352" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="251" y="364" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="86" y="98" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="196" y="58" width="23" height="25"/>
+  <object name="SpaceRock" type="SpaceRock" x="134" y="85" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="139" y="150" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="9" y="-63" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="-79" y="99" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="-64" y="56" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="47" y="106" width="37" height="32"/>
+  <object name="SpaceRock" type="SpaceRock" x="-24" y="36" width="75" height="54"/>
+  <object name="SpaceRock" type="SpaceRock" x="204" y="145" width="58" height="44"/>
+  <object name="SpaceRock" type="SpaceRock" x="144" y="63" width="23" height="25"/>
+  <object name="SpaceRock" type="SpaceRock" x="262" y="60" width="64" height="46"/>
+  <object name="SpaceRock" type="SpaceRock" x="192" y="24" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="144" y="37" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="197" y="89" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="105" y="45" width="37" height="32"/>
+  <object name="SpaceRock" type="SpaceRock" x="254" y="-3" width="23" height="25"/>
+  <object name="SpaceRock" type="SpaceRock" x="64" y="92" width="58" height="44"/>
+  <object name="SpaceRock" type="SpaceRock" x="4" y="10" width="23" height="25"/>
+  <object name="SpaceRock" type="SpaceRock" x="122" y="7" width="64" height="46"/>
+  <object name="SpaceRock" type="SpaceRock" x="52" y="-29" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="4" y="-16" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="57" y="36" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="-35" y="-8" width="37" height="32"/>
+  <object name="SpaceRock" type="SpaceRock" x="114" y="-56" width="23" height="25"/>
+  <object name="SpaceRock" type="SpaceRock" x="313" y="184" width="58" height="44"/>
+  <object name="SpaceRock" type="SpaceRock" x="253" y="102" width="23" height="25"/>
+  <object name="SpaceRock" type="SpaceRock" x="371" y="99" width="64" height="46"/>
+  <object name="SpaceRock" type="SpaceRock" x="301" y="63" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="253" y="76" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="306" y="128" width="26" height="21"/>
+  <object name="SpaceRock" type="SpaceRock" x="214" y="84" width="37" height="32"/>
+  <object name="SpaceRock" type="SpaceRock" x="363" y="36" width="23" height="25"/>
+ </objectgroup>
+ <objectgroup name="map1" width="100" height="100" visible="0">
+  <object type="SpaceShipWithRope" x="147" y="175">
+   <properties>
+    <property name="O_CantDie" value=""/>
+   </properties>
+  </object>
+  <object type="CircleSensor" x="415" y="55" width="10" height="10">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="SpaceRock" x="193" y="169" width="54" height="52"/>
+  <object type="SpaceRock" x="126" y="293" width="54" height="52"/>
   <object type="RectangleSensor" x="152" y="19" width="30" height="30">
    <properties>
     <property name="O_StopInHere" value=""/>
    </properties>
   </object>
-  <object type="SpaceRock" x="71" y="68" width="54" height="52"/>
+  <object type="SpaceRock" x="21" y="80" width="54" height="52"/>
   <object type="SpaceRock" x="47" y="193" width="54" height="52"/>
-  <object type="SpaceRock" x="318" y="257" width="54" height="52"/>
-  <object type="SpaceRock" x="155" y="247" width="54" height="52"/>
-  <object type="SpaceRock" x="284" y="268" width="54" height="52"/>
+  <object type="SpaceRock" x="133" y="59" width="54" height="52"/>
+  <object type="SpaceRock" x="233" y="243" width="54" height="52"/>
+  <object type="SpaceRock" x="238" y="94" width="54" height="52"/>
+ </objectgroup>
+ <objectgroup name="Awesome Map" width="100" height="100" visible="0">
+  <object type="CircleSensor" x="411" y="55" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object type="SpaceRock" x="157" y="96" width="54" height="52"/>
+  <object type="SpaceRock" x="122" y="96" width="24" height="22"/>
+  <object type="SpaceRock" x="47" y="193" width="54" height="52"/>
+  <object type="SpaceRock" x="154" y="166" width="148" height="142"/>
+  <object type="SpaceRock" x="45" y="131" width="54" height="52"/>
+  <object type="SpaceShip" x="121" y="156" width="5" height="5">
+   <properties>
+    <property name="O_CantDie" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="learn to fly" width="100" height="100" visible="0">
+  <object name="SpaceShip" type="SpaceShip" x="108" y="443">
+   <properties>
+    <property name="O_CantDie" value=""/>
+   </properties>
+  </object>
+  <object name="SpaceRock" type="SpaceRock" x="313" y="253" width="127" height="113"/>
+  <object name="SpaceRock" type="SpaceRock" x="611" y="257" width="127" height="113"/>
+  <object name="CircleSensor" type="CircleSensor" x="813" y="230" width="20" height="20">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="SpaceRock" type="SpaceRock" x="313" y="87" width="127" height="113"/>
+  <object name="SpaceRock" type="SpaceRock" x="483" y="369" width="127" height="113"/>
+  <object name="CircleSensor" type="CircleSensor" x="127" y="412" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="299" y="238" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="442" y="238" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="151" y="391" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="282" y="250" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="171" y="370" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="263" y="271" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="192" y="349" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="246" y="289" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="214" y="328" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="231" y="308" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="321" y="225" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="343" y="215" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="362" y="212" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="382" y="209" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="399" y="217" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="421" y="226" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="599" y="366" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="582" y="350" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="463" y="252" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="484" y="266" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="504" y="282" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="559" y="332" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="540" y="318" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="526" y="301" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="619" y="376" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="641" y="386" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="664" y="396" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="688" y="396" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="743" y="370" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="761" y="348" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="779" y="322" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="792" y="294" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="804" y="267" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="726" y="380" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
+  <object name="CircleSensor" type="CircleSensor" x="706" y="389" width="10" height="10">
+   <properties>
+    <property name="O_MoveThrough" value=""/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

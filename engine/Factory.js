@@ -3,17 +3,26 @@ Ses.Engine.Factory = {
    factoryMethod: {
 
       'SpaceRock': function(des) {
-         if(des.radious)
-            return new Ses.Entities.SpaceRock(des.x, des.y, des.radious);
+         var rock = new Ses.Entities.SpaceRock(des.x, des.y, des.width/2);
+         if(des.fx || des.fy)
+         {
+            var fx = parseFloat(des.fx) || 0,
+                fy = parseFloat(des.fy) || 0;
 
-         Ses.log("Create space rock from width");
-         return new Ses.Entities.SpaceRock(des.x, des.y, 2);
+            Ses.log(des);
+
+            //rock.body.ApplyImpulse(new Ses.b2Vec2(fx, fy),
+            //                       rock.body.GetWorldCenter());
+            rock.body.SetLinearVelocity(new Ses.b2Vec2(fx, fy));
+         }
+         return rock;
       },
 
       'SpaceShip': function(des) {
          var ship = new Ses.Entities.SpaceShip(des.x, des.y);
          Ses.CssUi.initShipStats(ship);
-         return ship;
+         var shipWithHp = new Ses.Core.EntityWithHitPointsBar(ship);
+         return shipWithHp;
       },
 
       'SpaceShipWithRope': function(des) {
@@ -21,12 +30,16 @@ Ses.Engine.Factory = {
       },
 
       'CircleSensor': function(des) {
-         return new Ses.Entities.CircleSensor(des.x, des.y, des.width);
+         return new Ses.Entities.CircleSensor(des.x, des.y, des.width/2);
       },
 
       'RectangleSensor': function(des) {
          return new Ses.Entities.RectangleSensor(
                des.x, des.y, des.width/2, des.height/2);
+      },
+
+      'BrokenShip': function(des) {
+         return new Ses.Entities.BrokenShip(des.x, des.y);
       }
    },
 

@@ -5,9 +5,8 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
       this._super();
       this.armour = Ses.Constans.SpaceShip.Armour;
 
-      this.body = Ses.Physic.createRectangleObject(
-         Ses.Constans.SpaceShip.Width,
-         Ses.Constans.SpaceShip.Height,
+      this.body = Ses.Physic.createCircleObject(
+         Ses.Constans.SpaceShip.Radious,
          { x: x, y: y },
          {
             density: Ses.Constans.SpaceShip.Density,
@@ -30,8 +29,8 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
       //TODO sila uderzenia !
       Ses.Physic.addOnPostSolveContactListener(this.body,
             function(contact, impulse) {
-               if (impulse.normalImpulses[0] > 10)
-                 self.armour -= impulse.normalImpulses[0];
+               if (impulse.normalImpulses[0] > 3)
+                  self.hit(impulse.normalImpulses[0]);
             });
 
       this.initShape();
@@ -53,13 +52,16 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
       this.shape.draw = this.getCustomDrawFunction(-width/2, -height/2);
       //this.shape.x = -width/2;
       //this.shape.y = -height/2;
-      //this.shape.cache(-width/2, -height/2, width, height, 0.5);
+      //this.shape.cache(-width/2, -height/2, width, height, 1);
       //this.shape.draw = oldDraw;
    },
 
    update: function(fakeStage)
    {
       this._super();
+
+      if(fakeStage.gameOver)
+         return;
 
       var x = fakeStage.getStage().mouseX;
       var y = fakeStage.getStage().mouseY;

@@ -1,14 +1,13 @@
 Ses.Entities.SpaceShipWithRope = Ses.Core.Entity.extend({
 
-   links: [],
-   graphics: new createjs.Graphics(),
-
    init: function(ship)
    {
       this.ship = ship;
       this.body = ship.body;
       this.linkLength = Ses.Constans.SpaceShip.Rope.Length /
                         Ses.Constans.SpaceShip.Rope.NumberOfLinks;
+      this.links = [];
+      this.graphics = new createjs.Graphics();
 
       var link = null;
       var shipPos = this.ship.body.GetWorldCenter();
@@ -99,4 +98,10 @@ Ses.Entities.SpaceShipWithRope = Ses.Core.Entity.extend({
       );
       return shipAnchor;
    },
+
+   // delegate
+   setOnDieListener: function(callback)
+   {
+      this.ship.setOnDieListener(callback);
+   }
 });

@@ -11,7 +11,7 @@ Ses.Entities.SpaceRock = Ses.Core.Entity.extend({
       fixDef.friction = 0.2;
       fixDef.shape = new Ses.b2PolygonShape();
 
-      var v = this.createRandomConvexPolygon(size, size * 0.9, 8);
+      var v = this.createRandomConvexPolygon(size, size * 0.95, 8);
       fixDef.shape.SetAsArray(v);
       fixDef.filter.categoryBits = Ses.Physic.CATEGORY_WORLD;
 

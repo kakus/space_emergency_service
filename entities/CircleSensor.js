@@ -6,15 +6,19 @@ Ses.Entities.CircleSensor = Ses.Entities.Sensor.extend({
 
       var g = new createjs.Graphics();
       g.setStrokeStyle(1);//, 0, 0, 10, true);
-      g.beginFill('rgba(255,255,0,0.1)');
+      //g.beginFill('rgba(255,255,0,0.1)');
       g.beginStroke('#ffff00');
-      g.drawCircle(x,y,radious*Ses.Engine.Scale);
+      //g.beginStroke('#ffffff');
+      g.drawCircle(0,0,radious*Ses.Engine.Scale);
       this.shape = new createjs.Shape(g);
+      this.shape.x = x;
+      this.shape.y = y;
 
       createjs.Tween.get(this.shape, {loop:true})
          .to({scaleX: 0.95, scaleY: 0.95 }, 300, createjs.Ease.linear)
          .to({scaleX: 1, scaleY: 1 }, 300, createjs.Ease.linear);
-      //this.shape.shadow = new createjs.Shadow('#ffff00', 0, 0, 4);
-   }
+      this.shape.shadow = new createjs.Shadow('#ffff00', 0, 0, 8);
+   },
+
 
 });
