@@ -11,6 +11,13 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
 
       this.fakeStage = new createjs.Container();
       this.stage.addChild(this.fakeStage);
+      var self = this;
+      this.fakeStage.addGameObject = function(object){
+         self.addGameObject(object);
+      };
+      this.fakeStage.removeGameObject = function(object){
+         self.removeGameObject(object);
+      };
 
       //init physic
       Ses.Physic.World = new Ses.b2World(
@@ -19,7 +26,6 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       );
 
       this.initBox2dDebugDraw();
-      this.initKeyListeners();
    },
 
    update: function(event)
@@ -27,7 +33,7 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       Ses.Physic.World.Step(1/Ses.Engine.FPS, 20, 20);
       Ses.Physic.World.ClearForces();
 
-      Ses.CssUi.update();
+      //Ses.CssUi.update();
 
       for (var i=0; i<this.gameObjects.length; ++i)
          this.gameObjects[i].update(this.fakeStage);
@@ -48,6 +54,11 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
          this.updateCamera = function() {};
          this.fakeStage.scaleX = this.fakeStage.scaleY = 0.5;
       }
+      if (Ses.Engine.Maps[mapid].scale)
+      {
+         this.fakeStage.scaleX = parseFloat(Ses.Engine.Maps[mapid].scale);
+         this.fakeStage.scaleY = parseFloat(Ses.Engine.Maps[mapid].scale);
+      }
 
       var objects = Ses.Engine.Maps[mapid].objects;
       for(var i=0; i<objects.length; ++i)
@@ -55,32 +66,43 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
          var obj = Ses.Engine.Factory.createObject(objects[i]);
          this.addGameObject(obj);
       }
+
+      if (mapid !== 0)
+         this.initKeyListeners();
    },
 
    initKeyListeners: function()
    {
+      var bindings = {
+         'Q' : 'StartEngine',
+         'W' : 'FireGrasper',
+         'E' : 'RemoveGraspers',
+      };
+
+      var self = this;
+      for (var key in bindings)
+      {
+         (function(key) {
+            Ses.Engine.addKeyListener(key, function(event)
+            {
+               if (event.type === 'keydown')
+                  self.fakeStage[bindings[key]] = true;
+               else if(event.type === 'keyup')
+                  self.fakeStage[bindings[key]] = false;
+            });
+         })(key);
+      }
+
       Ses.Engine.addKeyListener('D', function(event) {
          if (event.type === 'keydown')
             this.useBox2dDebugDraw = !this.useBox2dDebugDraw;
       });
 
-      Ses.Engine.addKeyListener('Space', function(event) {
-         if(event.type === 'keydown')
-         {
-            this.fakeStage.AttachKeyDown = true;
-         }
-         else if(event.type === 'keyup')
-         {
-            this.fakeStage.AttachKeyDown = false;
-         }
-      });
-
-      var self = this;
       this.stage.addEventListener('stagemousedown', function() {
-         self.fakeStage.mousedown = true;
+         self.fakeStage.StartEngine = true;
       });
       this.stage.addEventListener('stagemouseup', function() {
-         self.fakeStage.mousedown = false;
+         self.fakeStage.StartEngine = false;
       });
 
       Ses.Engine.addMouseScrollListener(function(delta) {

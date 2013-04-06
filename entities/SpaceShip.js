@@ -2,8 +2,16 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
 
    init: function(x, y)
    {
-      this._super();
-      this.armour = Ses.Constans.SpaceShip.Armour;
+      this.jetParticlePool = new Ses.Core.EntityPool(
+         Ses.Entities.JetExhaustParticle,
+         60, // number of enitites
+         {
+            'x': function() { return 0; },
+            'y': function() { return 0; },
+            'radious': function() {
+               return Math.random()*0.15 + 0.05;
+            }
+         });
 
       this.body = Ses.Physic.createCircleObject(
          Ses.Constans.SpaceShip.Radious,
@@ -34,6 +42,7 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
             });
 
       this.initShape();
+      //this.makeAnchorOnShip();
    },
 
    initShape: function()
@@ -52,8 +61,8 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
       this.shape.draw = this.getCustomDrawFunction(-width/2, -height/2);
       //this.shape.x = -width/2;
       //this.shape.y = -height/2;
-      //this.shape.cache(-width/2, -height/2, width, height, 1);
-      //this.shape.draw = oldDraw;
+      this.shape.cache(-width/2, -height/2, width, height, 1);
+      this.shape.draw = oldDraw;
    },
 
    update: function(fakeStage)
@@ -75,13 +84,13 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
 
       this.body.SetAngle(Math.atan2(y, x) + Math.PI/2);
 
-      if(fakeStage.mousedown)
-         this.startEngine();
+      if(fakeStage.StartEngine)
+         this.startEngine(fakeStage);
    },
 
-   startEngine: function()
+   startEngine: function(stage)
    {
-      var power = 0.5;
+      var power = 0.9;
 
       var impulse = new Ses.b2Vec2(
                Math.cos(this.body.GetAngle() - Math.PI/2) * power,
@@ -91,31 +100,42 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
       this.body.ApplyImpulse(impulse, this.body.GetWorldCenter());
 
       var speed = this.body.GetLinearVelocity();
-      var particle = this.createJetParticle();
-      particle.body.SetLinearVelocity(speed);
+      var position = this.body.GetWorldCenter().Copy();
       impulse.NegativeSelf();
+      impulse.Normalize();
+      impulse.Multiply(0.5);
+      position.Add(impulse);
       impulse.x *= 0.03+0.05*Math.random();
       impulse.y *= 0.03+0.05*Math.random();
+      var particle = this.createJetParticle(position, stage);
+      if (!particle)
+         return;
+
+      particle.body.SetLinearVelocity(speed);
       particle.body.ApplyImpulse(impulse, particle.body.GetWorldCenter());
    },
 
-   createJetParticle: function(stage)
+   createJetParticle: function(position, stage)
    {
-      var shipPos = this.body.GetWorldCenter();
-      var particle = new Ses.Entities.JetExhaustParticle(
-            shipPos.x,
-            shipPos.y,
-            0.05 + Math.random()*0.15
-      );
+      //var particle = new Ses.Entities.JetExhaustParticle(
+      //      position.x,
+      //      position.y,
+      //      0.05 + Math.random()*0.15
+      //);
+      var particle = this.jetParticlePool.getOne();
+      if (!particle)
+         return;
 
-      //TODO obejsc to ! dodawanie do elementu statku albo inaczej do sceny
-      Ses.Engine.currentView.addGameObject(particle);
+      particle.shape.visible = true;
+      particle.body.SetActive(true);
+      particle.body.SetPosition(new Ses.b2Vec2(position.x, position.y));
+      if (!particle.isOnStage)
+      {
+         stage.addGameObject(particle);
+         particle.isOnStage = true;
+      }
+
       particle.startFading(1000);
-
-      setTimeout(function() {
-         Ses.Engine.currentView.removeGameObject(particle);
-      }, 1000);
-
       return particle;
    },
 

@@ -1,3 +1,5 @@
+/* global Ses */
+
 Ses.Entities.SpaceRock = Ses.Core.Entity.extend({
 
    init: function (x, y, size)
@@ -10,18 +12,47 @@ Ses.Entities.SpaceRock = Ses.Core.Entity.extend({
       fixDef.friction = 0.5;
       fixDef.friction = 0.2;
       fixDef.shape = new Ses.b2PolygonShape();
+      fixDef.filter.categoryBits = Ses.Physic.CATEGORY_WORLD;
+      fixDef.filter.maskBits = Ses.Physic.WORLD_MASK;
 
-      var v = this.createRandomConvexPolygon(size, size * 0.95, 8);
-      fixDef.shape.SetAsArray(v);
+
+      var v = [];
+      var b = Ses.Physic.createDynamicBody(null, { x: x, y: y });
+
+      while ( true )
+      {
+         try
+         {
+            if( size < 3 )
+               v = this.createRandomConvexPolygon(size, size * 0.6, 16);
+            else
+               v = this.createRandomConvexPolygon(size, size * 0.75, 18);
+
+      
+            Box2D.Common.Separator.Separate(b, fixDef, v);
+            break;
+         }
+         catch (err)
+         {
+            var x = Box2D.Common.Separator.Validate(v);
+            Ses.log(Box2D.Common.Separator.validateToString(x)+' : '+size);
+            //throw err;
+         }
+      }
+
+      this.body = b;
+      //fixDef.shape.SetAsArray(v);
       fixDef.filter.categoryBits = Ses.Physic.CATEGORY_WORLD;
 
-      this.body = Ses.Physic.createDynamicBody(
-         fixDef,
-         { x: x, y: y}
-      );
+      //this.body = Ses.Physic.createDynamicBody(
+      //   fixDef,
+      //   { x: x, y: y}
+      //);
 
       this.initShape(v);
-      this.body.SetUserData('rock');
+      this.body.SetUserData({
+         hookAble: true
+      });
    },
 
    initShape: function(vertexs)
@@ -34,6 +65,7 @@ Ses.Entities.SpaceRock = Ses.Core.Entity.extend({
 
       var graphics = new createjs.Graphics();
       graphics.beginStroke('#FFFFFF');
+      //graphics.beginFill('#444444');
 
       var p = transform(vertexs[0]);
       graphics.moveTo(p.x, p.y);
@@ -66,8 +98,8 @@ Ses.Entities.SpaceRock = Ses.Core.Entity.extend({
 
       for(var n=0; n < numberOfVertex; ++n)
       {
-         var lowerBound = n*range;
-         var upperBound = (n+1)*range;
+         var lowerBound = n*range + range/3;
+         var upperBound = (n+1)*range - range/3;
          var x, y;
 
          while(true)

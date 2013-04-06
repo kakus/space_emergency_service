@@ -7,7 +7,6 @@ Ses.Entities.Grasper = Ses.Core.Entity.extend({
          0.3, //radious
          { x: pos.x, y: pos.y }
       );
-      this.body.SetUserData('grasper');
 
       var anchor = Ses.Physic.createCircleObject(
          0.2, //radious
@@ -31,10 +30,11 @@ Ses.Entities.Grasper = Ses.Core.Entity.extend({
       Ses.Physic.addOnBeginContactListener(this.body,
             function(collidedBody)
             {
-               if(collidedBody.GetUserData() === 'rock')
+               if (!collidedBody.GetUserData())
+                  return;
+
+               if (collidedBody.GetUserData().hookAble && !self.joint)
                {
-                  Ses.log('collison with rock');
-                  Ses.log(collidedBody);
                   self.joint = Ses.Physic.createWeldJoint(
                      self.body,
                      collidedBody,
@@ -64,6 +64,7 @@ Ses.Entities.Grasper = Ses.Core.Entity.extend({
       // Ses.Physic.World.DestroyJoint(this.joint);
       Ses.log('remove joint');
       Ses.Physic.removeJoint(this.joint);
+      this.joint = null;
    }
 
 });

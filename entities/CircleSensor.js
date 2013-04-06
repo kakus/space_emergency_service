@@ -2,7 +2,14 @@ Ses.Entities.CircleSensor = Ses.Entities.Sensor.extend({
 
    init: function(x, y, radious)
    {
-      this.body = Ses.Physic.createCircleSesnor(x, y, radious);
+      this.body = Ses.Physic.createCircleSesnor(x, y, radious,
+         {
+            filter: {
+               maskBits: Ses.Physic.SENSOR_MASK,
+               categoryBits: Ses.Physic.CATEGORY_SENSOR
+            }
+         }
+      );
 
       var g = new createjs.Graphics();
       g.setStrokeStyle(1);//, 0, 0, 10, true);

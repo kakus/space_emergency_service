@@ -1,3 +1,5 @@
+/* jshint bitwise: false */
+
 Ses.Physic = {
 
    bodyDef:          new Box2D.Dynamics.b2BodyDef(),
@@ -13,40 +15,43 @@ Ses.Physic = {
    jointsToCreate: [],
    jointsToRemove: [],
 
-   CATEGORY_SHIP : 0x01,
    CATEGORY_JET_PARTICLE : 0x02,
-   CATEGORY_WORLD : 0xff,
+   CATEGORY_WORLD :        0x04,
+   CATEGORY_SENSOR:        0x08,
+   CATEGORY_SHIP :         0x10,
+   CATEGORY_GRASPER:       0x20,
 
    SHIP_MASK :         ~0x02, // Everything that is not jet particle
-   JET_PARTICLE_MASK : ~0x01 & ~0x02, // Everything that is not ship and not particle
+   JET_PARTICLE_MASK : ~0x10 & ~0x02, // Everything that is not ship and not particle
+   SENSOR_MASK: 0x10, // just space ship
+   WORLD_MASK: ~0x08,
 
    setupFixtureDef: function(fixtureDef, specification)
    {
-      if(specification)
-      {
-         for(var field in specification)
-         {
-            if(typeof specification[field] === 'object')
-            {
-               for(var field_2 in specification[field])
-                  fixtureDef[field][field_2] = specification[field][field_2];
+      specification = specification || {};
 
-            }
-            else
-               fixtureDef[field] = specification[field];
-         }
-      }
-      else
+      for(var field in specification)
       {
-         fixtureDef.density = 1;
-         fixtureDef.friction = 0.5;
+         if(typeof specification[field] === 'object')
+         {
+            for(var field_2 in specification[field])
+               fixtureDef[field][field_2] = specification[field][field_2];
+         }
+         else
+            fixtureDef[field] = specification[field];
       }
+
+      if ( !specification.density )
+         fixtureDef.density = 1;
+      else if ( !specification.friction )
+         fixtureDef.friction = 0.5;
    },
 
    createBody: function(fixtureDef)
    {
       var body = Ses.Physic.World.CreateBody(this.bodyDef);
-      body.CreateFixture(fixtureDef);
+      if (fixtureDef)
+         body.CreateFixture(fixtureDef);
       return body;
    },
 
@@ -95,8 +100,14 @@ Ses.Physic = {
    {
       var weldJointDef = new Box2D.Dynamics.Joints.b2WeldJointDef();
       weldJointDef.Initialize(bodyA, bodyB, vec);
-      //this.jointsToCreate.push(weldJointDef);
       return Ses.Physic.World.CreateJoint(weldJointDef);
+   },
+
+   createDistanceJoint: function(bodyA, bodyB, vecA, vecB)
+   {
+      var distanceJointDef = new Box2D.Dynamics.Joints.b2DistanceJointDef();
+      distanceJointDef.Initialize(bodyA, bodyB, vecA, vecB);
+      return Ses.Physic.World.CreateJoint(distanceJointDef);
    },
 
    initContactListener: function()
@@ -159,6 +170,33 @@ Ses.Physic = {
       this.onPostSolveContacCallbacks.push({ body: body, callback: callback });
    },
 
+   /*
+    * @body the body that listeners need to be removed
+    * @return void
+    */
+   removeBodyListeners: function(body)
+   {
+      var i = 0;
+
+      [
+         this.onPostSolveContacCallbacks,
+         this.onEndContactCallbacks,
+         this.onBeginContactCallbacks
+
+      ].forEach(
+            function(array) {
+               for (var i = 0; i < array.length; ++i)
+               {
+                  if (array[i].body !== body)
+                     continue;
+
+                  array.splice(i, 1);
+                  return;
+               }
+            }
+      );
+   },
+
    createRectangleSesnor: function(x, y, width, height)
    {
       var fixtureDef = new Box2D.Dynamics.b2FixtureDef();
@@ -168,9 +206,10 @@ Ses.Physic = {
       return this.createStaticBody(fixtureDef, new Ses.b2Vec2(x, y));
    },
 
-   createCircleSesnor: function(x, y, radious)
+   createCircleSesnor: function(x, y, radious, specification)
    {
       var fixtureDef = new Box2D.Dynamics.b2FixtureDef();
+      this.setupFixtureDef(fixtureDef, specification);
       fixtureDef.shape = new Box2D.Collision.Shapes.b2CircleShape(radious);
       fixtureDef.isSensor = true;
       return this.createStaticBody(fixtureDef, new Ses.b2Vec2(x, y));
@@ -183,9 +222,11 @@ Ses.Physic = {
       this.onPostSolveContacCallbacks = [];
       this.contactListener = null;
 
-      var joints = Ses.Physic.World.GetJointList();
+      var joints = Ses.Physic.World.GetJointList(),
+          i      = 0;
+
       if (joints)
-         for (var i = 0; i < joints.length; ++i)
+         for (i = 0; i < joints.length; ++i)
             Ses.Physic.World.DestroyJoint(joints[i]);
 
       var bodies = Ses.Physic.World.GetBodyList();
@@ -210,16 +251,19 @@ Ses.Physic = {
 
    processJoints: function()
    {
-      for(var i = 0; i < this.jointsToCreate.length; ++i)
+      var i = 0,
+          def = null;
+
+      for(i = 0; i < this.jointsToCreate.length; ++i)
       {
-         var def = this.jointsToCreate[i];
+         def = this.jointsToCreate[i];
          Ses.Physic.World.CreateJoint(def);
       }
       this.jointsToCreate = [];
 
-      for(var i = 0; i < this.jointsToRemove.length; ++i)
+      for(i = 0; i < this.jointsToRemove.length; ++i)
       {
-         var def = this.jointsToRemove[i];
+         def = this.jointsToRemove[i];
          Ses.Physic.World.RemoveJoint(def);
       }
       this.jointsToRemove= [];

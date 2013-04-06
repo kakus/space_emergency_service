@@ -2,12 +2,16 @@
  * Kamil Misiowiec 1.03.2013
  *
  * Entity - base class of every object that aprears in game.
+ *
  */
+
+/* global Class */
 
 Ses.Core.Entity = Class.extend({
 
    maxHitPoints: 100,
    currentHitPoints: 10,
+   alive: true,
 
    init: function() {},
    update: function()
@@ -45,9 +49,15 @@ Ses.Core.Entity = Class.extend({
    hit: function(damage)
    {
       this.currentHitPoints -= damage;
-      if (this.currentHitPoints <= 0 && this.onDieCallback)
-         this.onDieCallback.call();
+      if (this.currentHitPoints <= 0)
+         this.setDead();
+   },
 
+   setDead: function()
+   {
+      this.alive = false;
+      if (this.onDieCallback)
+         this.onDieCallback.call();
    },
 
    setOnDieListener: function(callback)

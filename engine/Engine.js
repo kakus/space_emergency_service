@@ -1,3 +1,5 @@
+/* global Ses */
+
 Ses.Engine = {
 
    Maps: [],
@@ -15,7 +17,10 @@ Ses.Engine = {
    KeyBindings: {
 
       Space: { code: 32, callbacks: [] },
-      D: { code: 68, callbacks: [] }
+      D: { code: 68, callbacks: [] },
+      Q: { code: 81, callbacks: [] },
+      W: { code: 87, callbacks: [] },
+      E: { code: 69, callbacks: [] }
 
    },
 
@@ -230,6 +235,8 @@ Ses.Engine = {
       for (var prop in srcObj.properties)
          desObj[prop] = srcObj.properties[prop];
    },
+
+   /* global Stats */
 
    showStats: function()
    {

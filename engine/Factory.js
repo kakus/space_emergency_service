@@ -29,6 +29,10 @@ Ses.Engine.Factory = {
          return new Ses.Entities.SpaceShipWithRope(this.SpaceShip(des));
       },
 
+      'SpaceShipWithDistanceStick': function(des) {
+         return new Ses.Entities.SpaceShipWithDistanceStick(this.SpaceShip(des));
+      },
+
       'CircleSensor': function(des) {
          return new Ses.Entities.CircleSensor(des.x, des.y, des.width/2);
       },
@@ -39,7 +43,9 @@ Ses.Engine.Factory = {
       },
 
       'BrokenShip': function(des) {
-         return new Ses.Entities.BrokenShip(des.x, des.y);
+         var s = new Ses.Entities.BrokenShip(des.x, des.y);
+         //return new Ses.Core.EntityWithHitPointsBar(s);
+         return s;
       }
    },
 
