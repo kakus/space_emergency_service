@@ -20,9 +20,7 @@ Ses.Engine.Factory = {
 
       'SpaceShip': function(des) {
          var ship = new Ses.Entities.SpaceShip(des.x, des.y);
-         Ses.CssUi.initShipStats(ship);
-         var shipWithHp = new Ses.Core.EntityWithHitPointsBar(ship);
-         return shipWithHp;
+         return ship;
       },
 
       'SpaceShipWithRope': function(des) {

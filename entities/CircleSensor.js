@@ -24,7 +24,19 @@ Ses.Entities.CircleSensor = Ses.Entities.Sensor.extend({
       createjs.Tween.get(this.shape, {loop:true})
          .to({scaleX: 0.95, scaleY: 0.95 }, 300, createjs.Ease.linear)
          .to({scaleX: 1, scaleY: 1 }, 300, createjs.Ease.linear);
-      this.shape.shadow = new createjs.Shadow('#ffff00', 0, 0, 8);
+
+      var pixelRadious = radious*Ses.Engine.Scale;
+
+      switch (Ses.Engine.Graphics) {
+      case 'low':
+         this.shape.cache(-pixelRadious, -pixelRadious,
+                          pixelRadious*2, pixelRadious*2);
+         break;
+
+      case 'high':
+         this.shape.shadow = new createjs.Shadow('#ffff00', 0, 0, 8);
+         break;
+      }
    },
 
 

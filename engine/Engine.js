@@ -26,6 +26,15 @@ Ses.Engine = {
 
    mouseScrollListeners: [],
 
+   /**
+    * Sets the graphics quality mode
+    * avalible modes:
+    *    * low
+    *    * medium
+    *    * high
+    */
+   Graphics: 'low',
+
 
    init: function(canvas)
    {
@@ -61,6 +70,8 @@ Ses.Engine = {
          canvas.height = window.innerHeight;
          Ses.Engine.ScreenWidth = canvas.width;
          Ses.Engine.ScreenHeight = canvas.height;
+         if (Ses.Engine.currentView)
+            Ses.Engine.currentView.onWindowResize();
       };
       window.onresize();
 

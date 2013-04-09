@@ -5,7 +5,13 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
    init: function(stage, mapid)
    {
       this._super(stage);
+
+      //TODO rozpoznawanie jaka to mapa !
+      if (mapid === 0)
+         this.DemoMap = true;
+      //TODO to tez przydalo by sie lepiej rozwiazac
       Ses.Engine.Factory.gameView = this;
+
       this.gameObjects = [];
       this.mapObjectives = [];
 
@@ -33,8 +39,6 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       Ses.Physic.World.Step(1/Ses.Engine.FPS, 20, 20);
       Ses.Physic.World.ClearForces();
 
-      //Ses.CssUi.update();
-
       for (var i=0; i<this.gameObjects.length; ++i)
          this.gameObjects[i].update(this.fakeStage);
 
@@ -44,6 +48,11 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
          Ses.Physic.World.DrawDebugData();
       else
          this.stage.update();
+   },
+
+   onWindowResize: function()
+   {
+      this.updateUi();
    },
 
    initMap: function(mapid)
@@ -131,7 +140,10 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
 
       var data = object.body.GetUserData();
       if(data && data.SpaceShip)
-         this.cameraFollowObject = object;
+         this.setupShipUiAndCamera(object);
+      else if(data && data.BrokenShip)
+         // TODO better solution :/
+         this.setupTargetUi(object);
    },
 
    removeGameObject: function(object)
@@ -141,6 +153,59 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       if(object.shape)
          this.fakeStage.removeChild(object.shape);
       Ses.Physic.World.DestroyBody(object.body);
+   },
+
+   setupUi: function()
+   {
+      if (this.DemoMap)
+         return;
+
+      this.ui = new Ses.Ui.ArmourBars(300, 30);
+      this.stage.addChild(this.ui.shape);
+      this.updateUi();
+   },
+
+   updateUi: function()
+   {
+      if (!this.ui)
+         return;
+
+      this.ui.shape.y = Ses.Engine.ScreenHeight - this.ui.height;
+      this.ui.shape.x = Ses.Engine.ScreenWidth/2 - this.ui.width/2;
+   },
+
+   setupShipUiAndCamera: function(ship)
+   {
+      this.cameraFollowObject = ship;
+      if (!this.ui)
+         this.setupUi();
+
+      this.ui.updateShipBar(ship.getLifeInPrecetage());
+
+      var self = this;
+      ship.watch('currentHitPoints', function( oldval, newval) {
+         var precentage = 0;
+         if (newval > 0)
+            precentage = newval / ship.maxHitPoints;
+
+         self.ui.updateShipBar(precentage);
+      });
+   },
+
+   setupTargetUi: function(target)
+   {
+      if (!this.ui)
+         this.setupUi();
+
+      this.ui.updateTargetBar(target.getLifeInPrecetage());
+      var self = this;
+      target.watch('currentHitPoints', function(oldval, newval) {
+         var precentage = 0;
+         if (newval > 0)
+            precentage = newval / target.maxHitPoints;
+
+         self.ui.updateTargetBar(precentage);
+      });
    },
 
    updateCamera: function()

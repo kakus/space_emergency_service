@@ -53,6 +53,20 @@ Ses.Entities.SpaceRock = Ses.Core.Entity.extend({
       this.body.SetUserData({
          hookAble: true
       });
+
+      var pixelSize = size*Ses.Engine.Scale;
+      switch (Ses.Engine.Graphics) {
+      case 'low':
+         this.shape.cache(-pixelSize, -pixelSize,
+                           pixelSize*2, pixelSize*2);
+         break;
+
+      case 'medium':
+         break;
+
+      case 'high':
+         break;
+      }
    },
 
    initShape: function(vertexs)

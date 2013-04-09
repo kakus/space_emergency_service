@@ -41,7 +41,6 @@ Ses.Core.Entity = Class.extend({
 
             ctx.translate(offX, offY);
             self.draw(ctx);
-
          ctx.restore();
       };
    },
@@ -53,8 +52,19 @@ Ses.Core.Entity = Class.extend({
          this.setDead();
    },
 
+   getLifeInPrecetage: function()
+   {
+      if (this.currentHitPoints < 1)
+         return 0;
+
+      return this.currentHitPoints/this.maxHitPoints;
+   },
+
    setDead: function()
    {
+      if (!this.alive)
+         return;
+
       this.alive = false;
       if (this.onDieCallback)
          this.onDieCallback.call();
@@ -63,5 +73,43 @@ Ses.Core.Entity = Class.extend({
    setOnDieListener: function(callback)
    {
       this.onDieCallback = callback;
+   },
+
+   /**
+    * @property which we are listening for a change
+    * @callback a function that will be called when property change
+    */
+   watch: function(property, callback)
+   {
+      // if this object doesnt have the property just return
+      if (!this[property])
+         return;
+
+      if (this[property+'_listeners'])
+         this[property+'_listeners'].push(callback);
+      else
+      {
+         var listeners = this[property+'_listeners'] = [callback];
+         var prop = this[property+'_'] = this[property];
+      }
+
+      var addSetterToPrototype = function(property) {
+         // if the object isnt owner of property, we must go deeper in chain of
+         // inheritance
+         if (!this.hasOwnProperty(property))
+            addSetterToPrototype.call(this.__proto__, property);
+
+         this.__defineSetter__(property, function(val) {
+            for(var i = 0; i < listeners.length; ++i)
+               listeners[i].call({}, prop, val);
+            prop = val;
+         });
+
+         this.__defineGetter__(property, function() {
+            return prop;
+         });
+      };
+
+      addSetterToPrototype.call(this, property);
    }
 });

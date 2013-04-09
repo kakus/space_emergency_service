@@ -2,6 +2,8 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
 
    init: function(x, y)
    {
+      this.currentHitPoints = this.maxHitPoints;
+
       this.jetParticlePool = new Ses.Core.EntityPool(
          Ses.Entities.JetExhaustParticle,
          60, // number of enitites
@@ -42,7 +44,7 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
             });
 
       this.initShape();
-      //this.makeAnchorOnShip();
+
    },
 
    initShape: function()
@@ -61,8 +63,13 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
       this.shape.draw = this.getCustomDrawFunction(-width/2, -height/2);
       //this.shape.x = -width/2;
       //this.shape.y = -height/2;
-      this.shape.cache(-width/2, -height/2, width, height, 1);
-      this.shape.draw = oldDraw;
+
+      switch (Ses.Engine.Graphics) {
+      case 'low':
+         this.shape.cache(-width/2, -height/2, width, height, 2);
+         this.shape.draw = oldDraw;
+         break;
+      }
    },
 
    update: function(fakeStage)

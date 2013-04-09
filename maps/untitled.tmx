@@ -461,7 +461,7 @@
     <property name="O_CantDie" value=""/>
    </properties>
   </object>
-  <object name="SpaceShip" type="SpaceShipWithDistanceStick" x="167" y="515">
+  <object name="SpaceShip" type="SpaceShipWithDistanceStick" x="91" y="92">
    <properties>
     <property name="O_CantDie" value=""/>
    </properties>
