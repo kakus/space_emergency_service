@@ -33,7 +33,7 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
 
    update: function(event)
    {
-      Ses.Physic.World.Step(1/Ses.Engine.FPS, 20, 20);
+      Ses.Physic.World.Step(1/Ses.Engine.FPS, 10, 10);
       Ses.Physic.World.ClearForces();
 
       for (var i=0; i<this.gameObjects.length; ++i)
@@ -132,11 +132,12 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
 
    addGameObject: function(object)
    {
-      this.gameObjects.push(object);
+      if (object.body)
+         this.gameObjects.push(object);
       if(object.shape)
          this.fakeStage.addChild(object.shape);
 
-      if (this.DemoMap)
+      if (this.DemoMap || !object.body)
          return;
 
       var data = object.body.GetUserData();

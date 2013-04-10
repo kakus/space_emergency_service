@@ -974,55 +974,825 @@
         }, 
         {
          "height":100,
-         "name":"map1",
+         "name":"Lesson 1: Steering the sheep",
          "objects":[
                 {
+                 "height":13,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"Press mouse button or 'Q' to start this SHIP !"
+                    },
+                 "type":"TextField",
+                 "width":35,
+                 "x":191,
+                 "y":363
+                }, 
+                {
+                 "height":20,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":20,
+                 "x":265,
+                 "y":393
+                }, 
+                {
                  "height":0,
-                 "name":"",
+                 "name":"SpaceShip",
                  "properties":
                     {
                      "O_CantDie":""
                     },
-                 "type":"SpaceShipWithRope",
+                 "type":"SpaceShip",
                  "width":0,
-                 "x":147,
-                 "y":175
+                 "x":204,
+                 "y":400
+                }, 
+                {
+                 "height":120,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":120,
+                 "x":848,
+                 "y":218
+                }, 
+                {
+                 "height":12,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"Keep going through this yellow circles, maybe this is important ..."
+                    },
+                 "type":"TextField",
+                 "width":41,
+                 "x":246,
+                 "y":423
+                }, 
+                {
+                 "height":20,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":20,
+                 "x":347,
+                 "y":388
+                }, 
+                {
+                 "height":20,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":20,
+                 "x":395,
+                 "y":327
+                }, 
+                {
+                 "height":20,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":20,
+                 "x":425,
+                 "y":272
+                }, 
+                {
+                 "height":20,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":20,
+                 "x":478,
+                 "y":244
+                }, 
+                {
+                 "height":20,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":20,
+                 "x":550,
+                 "y":236
+                }, 
+                {
+                 "height":13,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"You can zoom in and out. Find out how!"
+                    },
+                 "type":"TextField",
+                 "width":45,
+                 "x":365,
+                 "y":297
+                }, 
+                {
+                 "height":20,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":20,
+                 "x":660,
+                 "y":237
+                }, 
+                {
+                 "height":20,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":20,
+                 "x":749,
+                 "y":237
+                }, 
+                {
+                 "height":20,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":20,
+                 "x":806,
+                 "y":238
+                }, 
+                {
+                 "height":20,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":20,
+                 "x":814,
+                 "y":358
+                }, 
+                {
+                 "height":40,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":40,
+                 "x":806,
+                 "y":411
+                }, 
+                {
+                 "height":14,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"Now you ready to take a test !"
+                    },
+                 "type":"TextField",
+                 "width":46,
+                 "x":781,
+                 "y":386
+                }, 
+                {
+                 "height":14,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"Try to not hit this rock."
+                    },
+                 "type":"TextField",
+                 "width":46,
+                 "x":798,
+                 "y":219
+                }],
+         "opacity":1,
+         "properties":
+            {
+             "scale":"1.5"
+            },
+         "type":"objectgroup",
+         "visible":false,
+         "width":100,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "height":100,
+         "name":"Test 1: Space drift",
+         "objects":[
+                {
+                 "height":0,
+                 "name":"SpaceShip",
+                 "properties":
+                    {
+                     "O_CantDie":""
+                    },
+                 "type":"SpaceShip",
+                 "width":0,
+                 "x":108,
+                 "y":443
+                }, 
+                {
+                 "height":113,
+                 "name":"SpaceRock",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":127,
+                 "x":313,
+                 "y":253
+                }, 
+                {
+                 "height":113,
+                 "name":"SpaceRock",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":127,
+                 "x":611,
+                 "y":257
+                }, 
+                {
+                 "height":20,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":20,
+                 "x":813,
+                 "y":230
+                }, 
+                {
+                 "height":113,
+                 "name":"SpaceRock",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":127,
+                 "x":313,
+                 "y":87
+                }, 
+                {
+                 "height":113,
+                 "name":"SpaceRock",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":127,
+                 "x":483,
+                 "y":369
                 }, 
                 {
                  "height":10,
-                 "name":"",
+                 "name":"CircleSensor",
                  "properties":
                     {
                      "O_MoveThrough":""
                     },
                  "type":"CircleSensor",
                  "width":10,
-                 "x":415,
-                 "y":55
+                 "x":127,
+                 "y":412
                 }, 
                 {
-                 "height":52,
-                 "name":"",
+                 "height":10,
+                 "name":"CircleSensor",
                  "properties":
                     {
-
+                     "O_MoveThrough":""
                     },
-                 "type":"SpaceRock",
-                 "width":54,
-                 "x":126,
-                 "y":293
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":299,
+                 "y":238
                 }, 
                 {
-                 "height":30,
-                 "name":"",
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":442,
+                 "y":238
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":151,
+                 "y":391
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":282,
+                 "y":250
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":171,
+                 "y":370
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":263,
+                 "y":271
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":192,
+                 "y":349
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":246,
+                 "y":289
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":214,
+                 "y":328
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":231,
+                 "y":308
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":321,
+                 "y":225
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":343,
+                 "y":215
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":362,
+                 "y":212
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":382,
+                 "y":209
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":399,
+                 "y":217
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":421,
+                 "y":226
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":599,
+                 "y":366
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":582,
+                 "y":350
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":463,
+                 "y":252
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":484,
+                 "y":266
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":504,
+                 "y":282
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":559,
+                 "y":332
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":540,
+                 "y":318
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":526,
+                 "y":301
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":619,
+                 "y":376
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":641,
+                 "y":386
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":664,
+                 "y":396
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":688,
+                 "y":396
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":743,
+                 "y":370
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":761,
+                 "y":348
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":779,
+                 "y":322
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":792,
+                 "y":294
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":804,
+                 "y":267
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":726,
+                 "y":380
+                }, 
+                {
+                 "height":10,
+                 "name":"CircleSensor",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":10,
+                 "x":706,
+                 "y":389
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":false,
+         "width":100,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "height":100,
+         "name":"Lesson 2: Space rope",
+         "objects":[
+                {
+                 "height":10,
+                 "name":"BrokenShip",
+                 "properties":
+                    {
+                     "O_CantDie":""
+                    },
+                 "type":"BrokenShip",
+                 "width":10,
+                 "x":411,
+                 "y":182
+                }, 
+                {
+                 "height":0,
+                 "name":"SpaceShip",
+                 "properties":
+                    {
+                     "O_CantDie":""
+                    },
+                 "type":"SpaceShipWithDistanceStick",
+                 "width":0,
+                 "x":364,
+                 "y":184
+                }, 
+                {
+                 "height":11,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"This is broken ship. Your duty is to help them."
+                    },
+                 "type":"TextField",
+                 "width":35,
+                 "x":393,
+                 "y":148
+                }, 
+                {
+                 "height":55,
+                 "name":"Baza",
                  "properties":
                     {
                      "O_StopInHere":""
                     },
                  "type":"RectangleSensor",
-                 "width":30,
-                 "x":152,
-                 "y":19
+                 "width":61,
+                 "x":655,
+                 "y":161
+                }, 
+                {
+                 "height":11,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"... further ..."
+                    },
+                 "type":"TextField",
+                 "width":35,
+                 "x":563,
+                 "y":152
+                }, 
+                {
+                 "height":11,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"HERE"
+                    },
+                 "type":"TextField",
+                 "width":35,
+                 "x":661,
+                 "y":144
                 }, 
                 {
                  "height":52,
@@ -1033,8 +1803,371 @@
                     },
                  "type":"SpaceRock",
                  "width":54,
-                 "x":21,
-                 "y":80
+                 "x":466,
+                 "y":142
+                }, 
+                {
+                 "height":11,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"To fire a space rope press 'W'."
+                    },
+                 "type":"TextField",
+                 "width":35,
+                 "x":370,
+                 "y":212
+                }, 
+                {
+                 "height":36,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":39,
+                 "x":355,
+                 "y":305
+                }, 
+                {
+                 "height":100,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":100,
+                 "x":252,
+                 "y":224
+                }, 
+                {
+                 "height":100,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":100,
+                 "x":526,
+                 "y":257
+                }, 
+                {
+                 "height":100,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":100,
+                 "x":344,
+                 "y":15
+                }, 
+                {
+                 "height":100,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":100,
+                 "x":721,
+                 "y":32
+                }, 
+                {
+                 "height":100,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":100,
+                 "x":784,
+                 "y":145
+                }, 
+                {
+                 "height":36,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":39,
+                 "x":418,
+                 "y":272
+                }, 
+                {
+                 "height":36,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":39,
+                 "x":599,
+                 "y":39
+                }, 
+                {
+                 "height":14,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":766,
+                 "y":269
+                }, 
+                {
+                 "height":14,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":739,
+                 "y":280
+                }, 
+                {
+                 "height":14,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":701,
+                 "y":281
+                }, 
+                {
+                 "height":14,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":727,
+                 "y":248
+                }, 
+                {
+                 "height":14,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":685,
+                 "y":249
+                }, 
+                {
+                 "height":14,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":653,
+                 "y":263
+                }, 
+                {
+                 "height":14,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":535,
+                 "y":78
+                }, 
+                {
+                 "height":14,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":490,
+                 "y":76
+                }, 
+                {
+                 "height":14,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":190,
+                 "y":120
+                }, 
+                {
+                 "height":14,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":205,
+                 "y":272
+                }, 
+                {
+                 "height":14,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":686,
+                 "y":406
+                }, 
+                {
+                 "height":14,
+                 "name":"",
+                 "properties":
+                    {
+                     "fy":"-4"
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":480,
+                 "y":405
+                }, 
+                {
+                 "height":11,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"Press 'E' to release rope"
+                    },
+                 "type":"TextField",
+                 "width":35,
+                 "x":706,
+                 "y":171
+                }, 
+                {
+                 "height":11,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"You can fire up to 2 ropes, this stops object from rotating."
+                    },
+                 "type":"TextField",
+                 "width":35,
+                 "x":588,
+                 "y":219
+                }],
+         "opacity":1,
+         "properties":
+            {
+             "scale":"1"
+            },
+         "type":"objectgroup",
+         "visible":false,
+         "width":100,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "height":100,
+         "name":"Test 2: Every day job",
+         "objects":[
+                {
+                 "height":10,
+                 "name":"BrokenShip",
+                 "properties":
+                    {
+                     "O_CantDie":""
+                    },
+                 "type":"BrokenShip",
+                 "width":10,
+                 "x":321,
+                 "y":264
+                }, 
+                {
+                 "height":0,
+                 "name":"SpaceShip",
+                 "properties":
+                    {
+                     "O_CantDie":""
+                    },
+                 "type":"SpaceShipWithDistanceStick",
+                 "width":0,
+                 "x":91,
+                 "y":92
+                }, 
+                {
+                 "height":116,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":134,
+                 "x":159,
+                 "y":215
+                }, 
+                {
+                 "height":147,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":140,
+                 "x":232,
+                 "y":32
+                }, 
+                {
+                 "height":255,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":314,
+                 "x":357,
+                 "y":199
+                }, 
+                {
+                 "height":80,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":80,
+                 "x":126,
+                 "y":110
                 }, 
                 {
                  "height":52,
@@ -1045,19 +2178,19 @@
                     },
                  "type":"SpaceRock",
                  "width":54,
-                 "x":47,
-                 "y":193
+                 "x":53,
+                 "y":131
                 }, 
                 {
-                 "height":52,
+                 "height":22,
                  "name":"",
                  "properties":
                     {
 
                     },
                  "type":"SpaceRock",
-                 "width":54,
-                 "x":133,
+                 "width":21,
+                 "x":129,
                  "y":59
                 }, 
                 {
@@ -1069,8 +2202,8 @@
                     },
                  "type":"SpaceRock",
                  "width":54,
-                 "x":233,
-                 "y":243
+                 "x":64,
+                 "y":209
                 }, 
                 {
                  "height":52,
@@ -1081,19 +2214,55 @@
                     },
                  "type":"SpaceRock",
                  "width":54,
-                 "x":238,
-                 "y":94
+                 "x":385,
+                 "y":122
+                }, 
+                {
+                 "height":55,
+                 "name":"Baza",
+                 "properties":
+                    {
+                     "O_StopInHere":""
+                    },
+                 "type":"RectangleSensor",
+                 "width":61,
+                 "x":17,
+                 "y":19
+                }, 
+                {
+                 "height":52,
+                 "name":"",
+                 "properties":
+                    {
+                     "fy":"-2.5"
+                    },
+                 "type":"SpaceRock",
+                 "width":54,
+                 "x":296,
+                 "y":540
+                }, 
+                {
+                 "height":15,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"Find them and save them ! Be quick !"
+                    },
+                 "type":"TextField",
+                 "width":86,
+                 "x":88,
+                 "y":21
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":100,
          "x":0,
          "y":0
         }, 
         {
          "height":100,
-         "name":"Awesome Map",
+         "name":"Pretty bad situation",
          "objects":[
                 {
                  "height":10,
@@ -1732,765 +2901,1431 @@
         }, 
         {
          "height":100,
-         "name":"learn to fly",
+         "name":"Catch a ride !",
          "objects":[
                 {
-                 "height":0,
-                 "name":"SpaceShip",
+                 "height":1000,
+                 "name":"",
                  "properties":
                     {
-                     "O_CantDie":""
-                    },
-                 "type":"SpaceShip",
-                 "width":0,
-                 "x":108,
-                 "y":443
-                }, 
-                {
-                 "height":113,
-                 "name":"SpaceRock",
-                 "properties":
-                    {
-
+                     "fy":"10"
                     },
                  "type":"SpaceRock",
-                 "width":127,
-                 "x":313,
-                 "y":253
+                 "width":1000,
+                 "x":1,
+                 "y":-950
                 }, 
                 {
-                 "height":113,
-                 "name":"SpaceRock",
+                 "height":1000,
+                 "name":"",
                  "properties":
                     {
-
+                     "fy":"-3"
                     },
                  "type":"SpaceRock",
-                 "width":127,
-                 "x":611,
-                 "y":257
+                 "width":1000,
+                 "x":-4,
+                 "y":588
                 }, 
                 {
-                 "height":20,
-                 "name":"CircleSensor",
+                 "height":100,
+                 "name":"",
                  "properties":
                     {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":20,
-                 "x":813,
-                 "y":230
-                }, 
-                {
-                 "height":113,
-                 "name":"SpaceRock",
-                 "properties":
-                    {
-
+                     "fx":"22"
                     },
                  "type":"SpaceRock",
-                 "width":127,
-                 "x":313,
-                 "y":87
-                }, 
-                {
-                 "height":113,
-                 "name":"SpaceRock",
-                 "properties":
-                    {
-
-                    },
-                 "type":"SpaceRock",
-                 "width":127,
-                 "x":483,
-                 "y":369
+                 "width":100,
+                 "x":12,
+                 "y":364
                 }, 
                 {
                  "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":127,
-                 "y":412
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":299,
-                 "y":238
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":442,
-                 "y":238
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":151,
-                 "y":391
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":282,
-                 "y":250
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":171,
-                 "y":370
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":263,
-                 "y":271
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":192,
-                 "y":349
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":246,
-                 "y":289
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":214,
-                 "y":328
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":231,
-                 "y":308
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":321,
-                 "y":225
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":343,
-                 "y":215
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":362,
-                 "y":212
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":382,
-                 "y":209
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":399,
-                 "y":217
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":421,
-                 "y":226
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":599,
-                 "y":366
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":582,
-                 "y":350
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":463,
-                 "y":252
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":484,
-                 "y":266
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":504,
-                 "y":282
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":559,
-                 "y":332
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":540,
-                 "y":318
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":526,
-                 "y":301
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":619,
-                 "y":376
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":641,
-                 "y":386
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":664,
-                 "y":396
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":688,
-                 "y":396
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":743,
-                 "y":370
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":761,
-                 "y":348
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":779,
-                 "y":322
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":792,
-                 "y":294
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":804,
-                 "y":267
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":726,
-                 "y":380
-                }, 
-                {
-                 "height":10,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":10,
-                 "x":706,
-                 "y":389
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":false,
-         "width":100,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "height":100,
-         "name":"rescue",
-         "objects":[
-                {
-                 "height":10,
-                 "name":"BrokenShip",
-                 "properties":
-                    {
-                     "O_CantDie":""
-                    },
-                 "type":"BrokenShip",
-                 "width":10,
-                 "x":321,
-                 "y":264
-                }, 
-                {
-                 "height":0,
-                 "name":"SpaceShip",
+                 "name":"",
                  "properties":
                     {
                      "O_CantDie":""
                     },
                  "type":"SpaceShipWithDistanceStick",
-                 "width":0,
-                 "x":91,
+                 "width":10,
+                 "x":209,
+                 "y":481
+                }, 
+                {
+                 "height":1000,
+                 "name":"",
+                 "properties":
+                    {
+                     "fx":"5"
+                    },
+                 "type":"SpaceRock",
+                 "width":1000,
+                 "x":-1012,
+                 "y":-18
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":10,
+                 "y":490
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":56,
+                 "y":492
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":104,
+                 "y":492
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":154,
+                 "y":492
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":232,
+                 "y":491
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":326,
+                 "y":493
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":278,
+                 "y":493
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":376,
+                 "y":493
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":406,
+                 "y":492
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":500,
+                 "y":494
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":452,
+                 "y":494
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":550,
+                 "y":494
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":582,
+                 "y":484
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":676,
+                 "y":486
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":628,
+                 "y":486
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":726,
+                 "y":486
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":768,
+                 "y":488
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":862,
+                 "y":490
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":814,
+                 "y":490
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":912,
+                 "y":490
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":362,
+                 "y":90
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":898,
+                 "y":88
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":848,
+                 "y":88
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":392,
+                 "y":90
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":754,
+                 "y":85
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":90,
+                 "y":90
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":42,
+                 "y":90
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":662,
+                 "y":84
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":486,
                  "y":92
                 }, 
                 {
-                 "height":35,
-                 "name":"CircleSensor",
-                 "properties":
-                    {
-                     "O_MoveThrough":""
-                    },
-                 "type":"CircleSensor",
-                 "width":36,
-                 "x":34,
-                 "y":38
-                }, 
-                {
-                 "height":116,
+                 "height":30,
                  "name":"",
                  "properties":
                     {
 
                     },
                  "type":"SpaceRock",
-                 "width":134,
-                 "x":159,
-                 "y":215
+                 "width":30,
+                 "x":438,
+                 "y":92
                 }, 
                 {
-                 "height":147,
+                 "height":30,
                  "name":"",
                  "properties":
                     {
 
                     },
                  "type":"SpaceRock",
-                 "width":140,
-                 "x":232,
-                 "y":32
+                 "width":30,
+                 "x":218,
+                 "y":89
                 }, 
                 {
-                 "height":255,
+                 "height":30,
                  "name":"",
                  "properties":
                     {
 
                     },
                  "type":"SpaceRock",
-                 "width":314,
-                 "x":357,
-                 "y":199
+                 "width":30,
+                 "x":264,
+                 "y":90
                 }, 
                 {
-                 "height":52,
+                 "height":30,
                  "name":"",
                  "properties":
                     {
 
                     },
                  "type":"SpaceRock",
-                 "width":54,
-                 "x":146,
-                 "y":131
+                 "width":30,
+                 "x":800,
+                 "y":88
                 }, 
                 {
-                 "height":52,
+                 "height":30,
                  "name":"",
                  "properties":
                     {
 
                     },
                  "type":"SpaceRock",
-                 "width":54,
-                 "x":53,
-                 "y":131
+                 "width":30,
+                 "x":536,
+                 "y":92
                 }, 
                 {
-                 "height":22,
+                 "height":30,
                  "name":"",
                  "properties":
                     {
 
                     },
                  "type":"SpaceRock",
-                 "width":21,
-                 "x":129,
-                 "y":59
+                 "width":30,
+                 "x":312,
+                 "y":90
                 }, 
                 {
-                 "height":52,
+                 "height":30,
                  "name":"",
                  "properties":
                     {
 
                     },
                  "type":"SpaceRock",
-                 "width":54,
-                 "x":64,
-                 "y":209
+                 "width":30,
+                 "x":140,
+                 "y":90
                 }, 
                 {
-                 "height":52,
+                 "height":30,
                  "name":"",
                  "properties":
                     {
 
                     },
                  "type":"SpaceRock",
-                 "width":54,
+                 "width":30,
+                 "x":568,
+                 "y":82
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":712,
+                 "y":84
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":30,
+                 "x":614,
+                 "y":84
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":467,
+                 "y":135
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":494,
+                 "y":138
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":522,
+                 "y":136
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":549,
+                 "y":139
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":577,
+                 "y":137
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":601,
+                 "y":136
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":642,
+                 "y":139
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":727,
+                 "y":146
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":847,
+                 "y":149
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":782,
+                 "y":147
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":672,
+                 "y":144
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":699,
+                 "y":148
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":754,
+                 "y":149
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":806,
+                 "y":146
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":308,
+                 "y":137
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":428,
+                 "y":140
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":363,
+                 "y":138
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":253,
+                 "y":135
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":280,
+                 "y":139
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":335,
+                 "y":140
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":387,
+                 "y":137
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":88,
+                 "y":139
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":208,
+                 "y":142
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":143,
+                 "y":140
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":33,
+                 "y":137
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":60,
+                 "y":141
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":115,
+                 "y":142
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":167,
+                 "y":139
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":330,
+                 "y":468
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":450,
+                 "y":471
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
                  "x":385,
-                 "y":122
+                 "y":469
                 }, 
                 {
-                 "height":35,
-                 "name":"CircleSensor",
+                 "height":15,
+                 "name":"",
                  "properties":
                     {
-                     "O_MoveThrough":""
+
                     },
-                 "type":"CircleSensor",
-                 "width":36,
-                 "x":54,
-                 "y":400
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":275,
+                 "y":466
                 }, 
                 {
-                 "height":35,
-                 "name":"CircleSensor",
+                 "height":15,
+                 "name":"",
                  "properties":
                     {
-                     "O_MoveThrough":""
+
                     },
-                 "type":"CircleSensor",
-                 "width":36,
-                 "x":123,
-                 "y":387
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":302,
+                 "y":470
                 }, 
                 {
-                 "height":35,
-                 "name":"CircleSensor",
+                 "height":15,
+                 "name":"",
                  "properties":
                     {
-                     "O_MoveThrough":""
+
                     },
-                 "type":"CircleSensor",
-                 "width":36,
-                 "x":193,
-                 "y":405
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":357,
+                 "y":471
                 }, 
                 {
-                 "height":35,
-                 "name":"CircleSensor",
+                 "height":15,
+                 "name":"",
                  "properties":
                     {
-                     "O_MoveThrough":""
+
                     },
-                 "type":"CircleSensor",
-                 "width":36,
-                 "x":250,
-                 "y":450
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":409,
+                 "y":468
                 }, 
                 {
-                 "height":35,
-                 "name":"CircleSensor",
+                 "height":15,
+                 "name":"",
                  "properties":
                     {
-                     "O_MoveThrough":""
+
                     },
-                 "type":"CircleSensor",
-                 "width":36,
-                 "x":298,
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":536,
+                 "y":461
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":656,
+                 "y":464
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":591,
+                 "y":462
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":481,
+                 "y":459
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":508,
+                 "y":463
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":563,
+                 "y":464
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":615,
+                 "y":461
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":756,
+                 "y":458
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":876,
+                 "y":461
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":811,
+                 "y":459
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":701,
+                 "y":456
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":728,
+                 "y":460
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":783,
+                 "y":461
+                }, 
+                {
+                 "height":15,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":15,
+                 "x":835,
+                 "y":458
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":12,
+                 "y":529
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":105,
+                 "y":525
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":202,
+                 "y":524
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":311,
+                 "y":522
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":462,
+                 "y":524
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":369,
+                 "y":528
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":559,
+                 "y":523
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":668,
+                 "y":521
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":809,
+                 "y":517
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":716,
+                 "y":521
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":906,
                  "y":516
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":1015,
+                 "y":514
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":56,
+                 "y":24
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":-37,
+                 "y":28
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":153,
+                 "y":23
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":262,
+                 "y":21
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":474,
+                 "y":16
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":381,
+                 "y":20
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":571,
+                 "y":15
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":680,
+                 "y":13
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":848,
+                 "y":19
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":755,
+                 "y":23
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":945,
+                 "y":18
+                }, 
+                {
+                 "height":67,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":69,
+                 "x":1054,
+                 "y":16
+                }, 
+                {
+                 "height":299,
+                 "name":"",
+                 "properties":
+                    {
+                     "O_MoveThrough":""
+                    },
+                 "type":"CircleSensor",
+                 "width":340,
+                 "x":1116,
+                 "y":140
                 }],
          "opacity":1,
+         "properties":
+            {
+             "scale":"0.8"
+            },
          "type":"objectgroup",
          "visible":false,
-         "width":100,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "height":100,
-         "name":"Lesson 2: Space Rope !",
-         "objects":[
-                {
-                 "height":0,
-                 "name":"SpaceShip",
-                 "properties":
-                    {
-                     "O_CantDie":""
-                    },
-                 "type":"SpaceShipWithDistanceStick",
-                 "width":0,
-                 "x":255,
-                 "y":361
-                }, 
-                {
-                 "height":10,
-                 "name":"BrokenShip",
-                 "properties":
-                    {
-                     "O_CantDie":""
-                    },
-                 "type":"BrokenShip",
-                 "width":10,
-                 "x":314,
-                 "y":353
-                }, 
-                {
-                 "height":61,
-                 "name":"",
-                 "properties":
-                    {
-                     "O_StopInHere":""
-                    },
-                 "type":"RectangleSensor",
-                 "width":63,
-                 "x":130,
-                 "y":332
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
          "width":100,
          "x":0,
          "y":0

@@ -93,7 +93,14 @@ Ses.Physic = {
       this.revoluteJointDef.localAnchorB.Set(vecB.x, vecB.y);
       this.revoluteJointDef.bodyA = bodyA;
       this.revoluteJointDef.bodyB = bodyB;
-      Ses.Physic.World.CreateJoint(this.revoluteJointDef);
+      return Ses.Physic.World.CreateJoint(this.revoluteJointDef);
+   },
+
+   createRevoluteJoint2: function(bodyA, bodyB, anchor)
+   {
+      var joint = new Box2D.Dynamics.Joints.b2RevoluteJointDef();
+      joint.Initialize(bodyA, bodyB, anchor);
+      return Ses.Physic.World.CreateJoint(joint);
    },
 
    createWeldJoint: function(bodyA, bodyB, vec)

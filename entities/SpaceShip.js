@@ -84,6 +84,8 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
 
       this.body.SetAngle(Math.atan2(y, x) + Math.PI/2);
 
+      this.updateCounterRotationMotor(fakeStage);
+
       if(fakeStage.StartEngine)
          this.startEngine(fakeStage);
    },
@@ -147,13 +149,36 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
          { x: pos.x, y: pos.y }
       );
 
-      Ses.Physic.createRevoluteJoint(
+      this.anchorJoint = Ses.Physic.createRevoluteJoint(
             this.body,
             shipAnchor,
             new Ses.b2Vec2(0, 0),
             new Ses.b2Vec2(0, 0)
       );
-      this.shipAnchor = shipAnchor;
+
+     // this.anchorJoint.EnableMotor(true);
+      this.anchor = shipAnchor;
+   },
+
+   updateCounterRotationMotor: function(stage)
+   {
+      //if (!stage.debug)
+      //{
+      //   stage.debug = new createjs.Text('debug', '20px Arial', '#ffffff');
+      //   stage.debug.y = 100;
+      //   stage.debug.x = 10;
+      //   stage.getStage().addChild(stage.debug);
+      //}
+
+      var velocity = this.anchor.GetAngularVelocity();
+      //
+      // stage.debug.text = velocity.toString();
+      if (velocity > 0.3 || velocity < -0.3)
+         this.anchor.SetAngularVelocity(-velocity*20);
+      else if (velocity > 0.1 || velocity < -0.1)
+         this.anchor.SetAngularVelocity(-velocity*80);
+      else
+         this.anchor.SetAngularVelocity(-velocity*160);
    },
 
    draw: function(ctx)

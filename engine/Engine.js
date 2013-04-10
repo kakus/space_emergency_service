@@ -33,7 +33,7 @@ Ses.Engine = {
     *    * medium
     *    * high
     */
-   Graphics: 'low',
+   Graphics: 'high',
 
 
    init: function(canvas)

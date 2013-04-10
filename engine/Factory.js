@@ -44,6 +44,10 @@ Ses.Engine.Factory = {
          var s = new Ses.Entities.BrokenShip(des.x, des.y);
          //return new Ses.Core.EntityWithHitPointsBar(s);
          return s;
+      },
+
+      'TextField': function(des) {
+         return new Ses.Entities.TextField(des.x, des.y, des.text);
       }
    },
 

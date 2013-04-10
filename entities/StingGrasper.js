@@ -47,18 +47,24 @@ Ses.Entities.StingGrasper = Ses.Core.Entity.extend({
                if (!self.attach)
                   return;
 
-               self.toObjectJoint = Ses.Physic.createWeldJoint(
+               self.toObjectJoint = Ses.Physic.createRevoluteJoint2(
                   self.body,
                   collidedBody,
-                  collidedBody.GetWorldCenter()
-               );
-
-               self.toShipJoint = Ses.Physic.createDistanceJoint(
-                  ship.body,
-                  self.body,
-                  ship.body.GetWorldCenter(),
                   self.body.GetWorldCenter()
                );
+
+               self.toShipJoint = Ses.Physic.createWeldJoint(
+                  self.body,
+                  self.ship.anchor,
+                  self.body.GetWorldCenter()
+               );
+
+               //self.toShipJoint = Ses.Physic.createDistanceJoint(
+               //   ship.body,
+               //   self.body,
+               //   ship.body.GetWorldCenter(),
+               //   self.body.GetWorldCenter()
+               //);
 
                self.attach = false;
                Ses.Physic.removeBodyListeners(self.body);
