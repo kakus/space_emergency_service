@@ -32,6 +32,7 @@ Ses.Entities.BrokenShip = Ses.Core.Entity.extend({
          hookAble: true,
          BrokenShip: true
       });
+      this.setKillable();
 
       switch (Ses.Engine.Graphics) {
       case 'low':

@@ -35,16 +35,9 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
 
       });
 
-      var self = this;
-      //TODO sila uderzenia !
-      Ses.Physic.addOnPostSolveContactListener(this.body,
-            function(contact, impulse) {
-               if (impulse.normalImpulses[0] > 3)
-                  self.hit(impulse.normalImpulses[0]);
-            });
-
       this.initShape();
-
+      this.setKillable();
+      this.makeAnchorOnShip();
    },
 
    initShape: function()
@@ -144,6 +137,23 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
 
       particle.startFading(1000);
       return particle;
+   },
+
+   makeAnchorOnShip: function()
+   {
+      var pos = this.body.GetWorldCenter();
+      var shipAnchor = Ses.Physic.createCircleObject(
+         0.3,
+         { x: pos.x, y: pos.y }
+      );
+
+      Ses.Physic.createRevoluteJoint(
+            this.body,
+            shipAnchor,
+            new Ses.b2Vec2(0, 0),
+            new Ses.b2Vec2(0, 0)
+      );
+      this.shipAnchor = shipAnchor;
    },
 
    draw: function(ctx)

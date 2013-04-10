@@ -28,10 +28,10 @@ Ses.Entities.CircleSensor = Ses.Entities.Sensor.extend({
       var pixelRadious = radious*Ses.Engine.Scale;
 
       switch (Ses.Engine.Graphics) {
-      case 'low':
-         this.shape.cache(-pixelRadious, -pixelRadious,
-                          pixelRadious*2, pixelRadious*2);
-         break;
+      //case 'low':
+      //   this.shape.cache(-pixelRadious, -pixelRadious,
+      //                    pixelRadious*2, pixelRadious*2);
+      //   break;
 
       case 'high':
          this.shape.shadow = new createjs.Shadow('#ffff00', 0, 0, 8);

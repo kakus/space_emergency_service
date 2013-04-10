@@ -2,13 +2,10 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
 
    useBox2dDebugDraw: false,
 
-   init: function(stage, mapid)
+   init: function(stage)
    {
       this._super(stage);
 
-      //TODO rozpoznawanie jaka to mapa !
-      if (mapid === 0)
-         this.DemoMap = true;
       //TODO to tez przydalo by sie lepiej rozwiazac
       Ses.Engine.Factory.gameView = this;
 
@@ -62,6 +59,7 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       {
          this.updateCamera = function() {};
          this.fakeStage.scaleX = this.fakeStage.scaleY = 0.5;
+         this.DemoMap = true;
       }
       if (Ses.Engine.Maps[mapid].scale)
       {
@@ -138,6 +136,9 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       if(object.shape)
          this.fakeStage.addChild(object.shape);
 
+      if (this.DemoMap)
+         return;
+
       var data = object.body.GetUserData();
       if(data && data.SpaceShip)
          this.setupShipUiAndCamera(object);
@@ -157,9 +158,6 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
 
    setupUi: function()
    {
-      if (this.DemoMap)
-         return;
-
       this.ui = new Ses.Ui.ArmourBars(300, 30);
       this.stage.addChild(this.ui.shape);
       this.updateUi();
@@ -170,7 +168,7 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       if (!this.ui)
          return;
 
-      this.ui.shape.y = Ses.Engine.ScreenHeight - this.ui.height;
+      this.ui.shape.y = Ses.Engine.ScreenHeight - this.ui.height - 10 //offset;
       this.ui.shape.x = Ses.Engine.ScreenWidth/2 - this.ui.width/2;
    },
 

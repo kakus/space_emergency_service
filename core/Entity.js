@@ -52,6 +52,19 @@ Ses.Core.Entity = Class.extend({
          this.setDead();
    },
 
+   setKillable: function()
+   {
+      if (!this.body) return;
+
+      var self = this;
+      //TODO sila uderzenia !
+      Ses.Physic.addOnPostSolveContactListener(this.body,
+            function(contact, impulse) {
+               if (impulse.normalImpulses[0] > 3)
+                  self.hit(impulse.normalImpulses[0]);
+      });
+   },
+
    getLifeInPrecetage: function()
    {
       if (this.currentHitPoints < 1)
@@ -91,14 +104,6 @@ Ses.Core.Entity = Class.extend({
       {
          var listeners = this[property+'_listeners'] = [callback];
          var prop = this[property+'_'] = this[property];
-      }
-
-      var addSetterToPrototype = function(property) {
-         // if the object isnt owner of property, we must go deeper in chain of
-         // inheritance
-         if (!this.hasOwnProperty(property))
-            addSetterToPrototype.call(this.__proto__, property);
-
          this.__defineSetter__(property, function(val) {
             for(var i = 0; i < listeners.length; ++i)
                listeners[i].call({}, prop, val);
@@ -108,8 +113,6 @@ Ses.Core.Entity = Class.extend({
          this.__defineGetter__(property, function() {
             return prop;
          });
-      };
-
-      addSetterToPrototype.call(this, property);
+      }
    }
 });

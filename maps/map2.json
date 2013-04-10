@@ -2443,6 +2443,53 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
+         "visible":false,
+         "width":100,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "height":100,
+         "name":"Lesson 2: Space Rope !",
+         "objects":[
+                {
+                 "height":0,
+                 "name":"SpaceShip",
+                 "properties":
+                    {
+                     "O_CantDie":""
+                    },
+                 "type":"SpaceShipWithDistanceStick",
+                 "width":0,
+                 "x":255,
+                 "y":361
+                }, 
+                {
+                 "height":10,
+                 "name":"BrokenShip",
+                 "properties":
+                    {
+                     "O_CantDie":""
+                    },
+                 "type":"BrokenShip",
+                 "width":10,
+                 "x":314,
+                 "y":353
+                }, 
+                {
+                 "height":61,
+                 "name":"",
+                 "properties":
+                    {
+                     "O_StopInHere":""
+                    },
+                 "type":"RectangleSensor",
+                 "width":63,
+                 "x":130,
+                 "y":332
+                }],
+         "opacity":1,
+         "type":"objectgroup",
          "visible":true,
          "width":100,
          "x":0,
