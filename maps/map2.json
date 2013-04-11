@@ -1743,7 +1743,7 @@
                     },
                  "type":"SpaceShipWithDistanceStick",
                  "width":0,
-                 "x":364,
+                 "x":385,
                  "y":184
                 }, 
                 {
@@ -1781,18 +1781,6 @@
                  "width":35,
                  "x":563,
                  "y":152
-                }, 
-                {
-                 "height":11,
-                 "name":"Text",
-                 "properties":
-                    {
-                     "text":"HERE"
-                    },
-                 "type":"TextField",
-                 "width":35,
-                 "x":661,
-                 "y":144
                 }, 
                 {
                  "height":52,
@@ -2067,8 +2055,8 @@
                     },
                  "type":"TextField",
                  "width":35,
-                 "x":706,
-                 "y":171
+                 "x":449,
+                 "y":233
                 }, 
                 {
                  "height":11,
@@ -2081,6 +2069,18 @@
                  "width":35,
                  "x":588,
                  "y":219
+                }, 
+                {
+                 "height":11,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"-> -> ->"
+                    },
+                 "type":"TextField",
+                 "width":35,
+                 "x":491,
+                 "y":211
                 }],
          "opacity":1,
          "properties":
@@ -2088,7 +2088,7 @@
              "scale":"1"
             },
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":100,
          "x":0,
          "y":0
@@ -2255,7 +2255,174 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
+         "width":100,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "height":100,
+         "name":"Copy of Test 2: Every day job",
+         "objects":[
+                {
+                 "height":10,
+                 "name":"BrokenShip",
+                 "properties":
+                    {
+                     "O_CantDie":""
+                    },
+                 "type":"BrokenShip",
+                 "width":10,
+                 "x":20,
+                 "y":105
+                }, 
+                {
+                 "height":0,
+                 "name":"SpaceShip",
+                 "properties":
+                    {
+                     "O_CantDie":""
+                    },
+                 "type":"SpaceShipWithDistanceStick",
+                 "width":0,
+                 "x":91,
+                 "y":92
+                }, 
+                {
+                 "height":116,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":134,
+                 "x":159,
+                 "y":215
+                }, 
+                {
+                 "height":147,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":140,
+                 "x":232,
+                 "y":32
+                }, 
+                {
+                 "height":255,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":314,
+                 "x":357,
+                 "y":199
+                }, 
+                {
+                 "height":80,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":80,
+                 "x":126,
+                 "y":110
+                }, 
+                {
+                 "height":52,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":54,
+                 "x":53,
+                 "y":131
+                }, 
+                {
+                 "height":22,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":21,
+                 "x":129,
+                 "y":59
+                }, 
+                {
+                 "height":52,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":54,
+                 "x":64,
+                 "y":209
+                }, 
+                {
+                 "height":52,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "type":"SpaceRock",
+                 "width":54,
+                 "x":385,
+                 "y":122
+                }, 
+                {
+                 "height":55,
+                 "name":"Baza",
+                 "properties":
+                    {
+                     "O_StopInHere":""
+                    },
+                 "type":"RectangleSensor",
+                 "width":61,
+                 "x":17,
+                 "y":19
+                }, 
+                {
+                 "height":52,
+                 "name":"",
+                 "properties":
+                    {
+                     "fy":"-2.5"
+                    },
+                 "type":"SpaceRock",
+                 "width":54,
+                 "x":296,
+                 "y":540
+                }, 
+                {
+                 "height":15,
+                 "name":"Text",
+                 "properties":
+                    {
+                     "text":"Find them and save them ! Be quick !"
+                    },
+                 "type":"TextField",
+                 "width":86,
+                 "x":88,
+                 "y":21
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":false,
          "width":100,
          "x":0,
          "y":0

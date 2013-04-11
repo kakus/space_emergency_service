@@ -15,16 +15,17 @@ Ses.Physic = {
    jointsToCreate: [],
    jointsToRemove: [],
 
-   CATEGORY_JET_PARTICLE : 0x02,
-   CATEGORY_WORLD :        0x04,
-   CATEGORY_SENSOR:        0x08,
-   CATEGORY_SHIP :         0x10,
-   CATEGORY_GRASPER:       0x20,
+   CATEGORY_JET_PARTICLE :       0x02,
+   CATEGORY_WORLD :              0x04,
+   CATEGORY_SENSOR:              0x08,
+   CATEGORY_SHIP :               0x10,
+   CATEGORY_GRASPER:             0x20,
+   CATEGORY_BROKEN_SHIP:         0x80,
 
-   SHIP_MASK :         ~0x02, // Everything that is not jet particle
-   JET_PARTICLE_MASK : ~0x10 & ~0x02, // Everything that is not ship and not particle
-   SENSOR_MASK: 0x10, // just space ship
-   WORLD_MASK: ~0x08,
+   SHIP_MASK :         ~0x0002, // Everything that is not jet particle
+   JET_PARTICLE_MASK : ~0x0010 & ~0x0002, // Everything that is not ship and not particle
+   SENSOR_MASK: 0x0010, // just space ship
+   WORLD_MASK: ~0x0008,
 
    setupFixtureDef: function(fixtureDef, specification)
    {
@@ -204,9 +205,10 @@ Ses.Physic = {
       );
    },
 
-   createRectangleSesnor: function(x, y, width, height)
+   createRectangleSesnor: function(x, y, width, height, specification)
    {
       var fixtureDef = new Box2D.Dynamics.b2FixtureDef();
+      this.setupFixtureDef(fixtureDef, specification);
       fixtureDef.shape = new Box2D.Collision.Shapes.b2PolygonShape();
       fixtureDef.shape.SetAsBox(width, height);
       fixtureDef.isSensor = true;

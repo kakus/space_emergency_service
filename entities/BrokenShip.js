@@ -8,7 +8,8 @@ Ses.Entities.BrokenShip = Ses.Core.Entity.extend({
          { x: x, y: y },
          {
             filter: {
-               categoryBits: Ses.Physic.CATEGORY_WORLD,
+               categoryBits: Ses.Physic.CATEGORY_WORLD &&
+                             Ses.Physic.CATEGORY_BROKEN_SHIP,
                maskBits: Ses.Physic.WORLD_MASK
             }
          }

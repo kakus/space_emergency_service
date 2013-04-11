@@ -95,8 +95,8 @@ Ses.Core.Entity = Class.extend({
    watch: function(property, callback)
    {
       // if this object doesnt have the property just return
-      if (!this[property])
-         return;
+      if (this[property] === undefined)
+         throw new Error('This entity doesnt have this property');
 
       if (this[property+'_listeners'])
          this[property+'_listeners'].push(callback);

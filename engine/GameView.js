@@ -253,14 +253,22 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
 
       case 'O_StopInHere':
          object.setOnObjectEnterListener(function(x) {
-            Ses.log(x.GetLinearVelocity().Length());
+            object.docking = x;
+         });
+         object.setOnObjectLeaveListener(function(x) {
+            object.docking = null;
+         });
+         object.watch('docked', function(oldval, newval) {
+            Ses.log(oldval +' n: ' + newval);
+            if (newval)
+               obj.setDone();
          });
          break;
 
       case 'O_MoveThrough':
          object.setOnObjectEnterListener(function() {
             obj.setDone();
-            self.removeGameObject(object);
+            object.fadeOut(function() { self.removeGameObject(object); });
          });
          break;
 

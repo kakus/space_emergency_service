@@ -39,5 +39,14 @@ Ses.Entities.CircleSensor = Ses.Entities.Sensor.extend({
       }
    },
 
+   fadeOut: function(onCompleteCallback)
+   {
+      createjs.Tween.removeTweens(this.shape);
+      createjs.Tween.get(this.shape, {loop:false})
+         .to({alpha: 0, scaleX: 2, scaleY: 2}, 300, createjs.Ease.linear)
+         .call( onCompleteCallback );
+
+   }
+
 
 });

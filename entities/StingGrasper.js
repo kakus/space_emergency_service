@@ -55,7 +55,7 @@ Ses.Entities.StingGrasper = Ses.Core.Entity.extend({
 
                self.toShipJoint = Ses.Physic.createWeldJoint(
                   self.body,
-                  self.ship.anchor,
+                  self.ship.getAnchor(),
                   self.body.GetWorldCenter()
                );
 

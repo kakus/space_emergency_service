@@ -57,7 +57,7 @@ Ses.Entities.SpaceShipWithDistanceStick = Ses.Core.Entity.extend({
       }
 
 
-      if (!stage.FireGrasper || this.onCooldown)
+      if (!stage.FireGrasper || this.onCooldown || this.graspers.length === 2)
          return;
 
       var x = stage.getStage().mouseX;

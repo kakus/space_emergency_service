@@ -144,20 +144,54 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
    makeAnchorOnShip: function()
    {
       var pos = this.body.GetWorldCenter();
-      var shipAnchor = Ses.Physic.createCircleObject(
+      var anchor1 = Ses.Physic.createCircleObject(
          0.3,
          { x: pos.x, y: pos.y }
       );
+      var anchor2 = Ses.Physic.createCircleObject(
+         0.2,
+         { x: pos.x, y: pos.y }
+      );
 
-      this.anchorJoint = Ses.Physic.createRevoluteJoint(
+
+      Ses.Physic.createRevoluteJoint(
             this.body,
-            shipAnchor,
+            anchor1,
             new Ses.b2Vec2(0, 0),
             new Ses.b2Vec2(0, 0)
       );
 
-     // this.anchorJoint.EnableMotor(true);
-      this.anchor = shipAnchor;
+      Ses.Physic.createRevoluteJoint(
+            anchor1,
+            anchor2,
+            new Ses.b2Vec2(0, 0),
+            new Ses.b2Vec2(0, 0)
+      );
+
+      Ses.Physic.createRevoluteJoint(
+            this.body,
+            anchor2,
+            new Ses.b2Vec2(0, 0),
+            new Ses.b2Vec2(0, 0)
+      );
+
+      this.anchors = [anchor1, anchor2];
+   },
+
+   getAnchor: function ()
+   {
+      var freeAnchor = null;
+      this.anchors.forEach(function(anchor) {
+         if (anchor.GetJointList().next.next === null ) {
+            freeAnchor = anchor;
+            return;
+         }
+      });
+
+      if (freeAnchor === null)
+         throw new Error('No more free anchors on ship to fire a rope');
+
+      return freeAnchor;
    },
 
    updateCounterRotationMotor: function(stage)
@@ -170,15 +204,18 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
       //   stage.getStage().addChild(stage.debug);
       //}
 
-      var velocity = this.anchor.GetAngularVelocity();
-      //
-      // stage.debug.text = velocity.toString();
-      if (velocity > 0.3 || velocity < -0.3)
-         this.anchor.SetAngularVelocity(-velocity*20);
-      else if (velocity > 0.1 || velocity < -0.1)
-         this.anchor.SetAngularVelocity(-velocity*80);
-      else
-         this.anchor.SetAngularVelocity(-velocity*160);
+      for(var i = 0; i < this.anchors.length; ++i)
+      {
+         var anchor = this.anchors[i];
+         var velocity = anchor.GetAngularVelocity(); //
+         // stage.debug.text = velocity.toString();
+         if (velocity > 0.3 || velocity < -0.3)
+            anchor.SetAngularVelocity(-velocity*30);
+         else if (velocity > 0.1 || velocity < -0.1)
+            anchor.SetAngularVelocity(-velocity*90);
+         else
+            anchor.SetAngularVelocity(-velocity*180);
+      }
    },
 
    draw: function(ctx)
