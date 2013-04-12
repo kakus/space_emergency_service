@@ -2,6 +2,8 @@ Ses.Entities.CircleSensor = Ses.Entities.Sensor.extend({
 
    init: function(x, y, radious)
    {
+      this.radious = radious;
+
       this.body = Ses.Physic.createCircleSesnor(x, y, radious,
          {
             filter: {
@@ -41,12 +43,24 @@ Ses.Entities.CircleSensor = Ses.Entities.Sensor.extend({
 
    fadeOut: function(onCompleteCallback)
    {
+      this.alive = false;
       createjs.Tween.removeTweens(this.shape);
       createjs.Tween.get(this.shape, {loop:false})
          .to({alpha: 0, scaleX: 2, scaleY: 2}, 300, createjs.Ease.linear)
          .call( onCompleteCallback );
 
-   }
+   },
 
+   notCheckpoint: function()
+   {
+      this.shape.graphics.clear()
+         .s('#ffa800').dc(0, 0, this.radious*Ses.Engine.Scale);
+      var self = this;
+      this.setOnObjectEnterListener(function() {
+         self.fadeOut(function() {
+            self.shape.getStage().removeGameObject(self);
+         });
+      });
+   }
 
 });

@@ -21,7 +21,12 @@ Ses.Entities.JetExhaustParticle = Ses.Core.Entity.extend({
       g.setStrokeStyle(1);
       g.drawCircle(0, 0, radious*Ses.Engine.Scale);
       this.shape = new createjs.Shape(g);
-      //this.shape.shadow = new createjs.Shadow('#0096ff', 0, 0, 8);
+
+      switch (Ses.Engine.Graphics) {
+      case 'high':
+         this.shape.shadow = new createjs.Shadow('#0096ff', 0, 0, 8);
+         break;
+      }
       //this.shape.cache(-radious*30-5, -radious*30-5, radious*60+10, radious*60+10, 2);
    },
 

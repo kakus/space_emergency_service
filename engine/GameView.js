@@ -9,18 +9,18 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       //TODO to tez przydalo by sie lepiej rozwiazac
       Ses.Engine.Factory.gameView = this;
 
-      this.gameObjects = [];
-      this.mapObjectives = [];
+      this.gameObjects =         [];
+      this.mapObjectives =       [];
+      this.conditionsFor2Stars = [];
 
       this.fakeStage = new createjs.Container();
       this.stage.addChild(this.fakeStage);
+
       var self = this;
-      this.fakeStage.addGameObject = function(object){
-         self.addGameObject(object);
-      };
-      this.fakeStage.removeGameObject = function(object){
-         self.removeGameObject(object);
-      };
+      [this.stage, this.fakeStage].forEach(function(stage) {
+         stage.addGameObject =    function(o) { self.addGameObject(o); };
+         stage.removeGameObject = function(o) { self.removeGameObject(o); };
+      });
 
       //init physic
       Ses.Physic.World = new Ses.b2World(
@@ -28,39 +28,54 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
          true
       );
 
+      this.stage.debug = new createjs.Text('debug', '20px Arial', '#ffffff');
+      this.stage.debug.y = 100;
+      this.stage.debug.x = 10;
+      this.stage.addChild(stage.debug);
+
       this.initBox2dDebugDraw();
+      this.navigator = new Ses.Engine.Navigator(this.fakeStage);
    },
 
    update: function(event)
    {
-      Ses.Physic.World.Step(1/Ses.Engine.FPS, 10, 10);
+      //Ses.Physic.World.Step(1/Ses.Engine.FPS, 10, 10);
+      this.fakeStage.delta = event.delta;
+      Ses.Physic.World.Step(event.delta/1000, 10, 10);
       Ses.Physic.World.ClearForces();
 
       for (var i=0; i<this.gameObjects.length; ++i)
          this.gameObjects[i].update(this.fakeStage);
 
       this.updateCamera();
+      this.navigator.update();
 
       if (this.useBox2dDebugDraw)
          Ses.Physic.World.DrawDebugData();
       else
          this.stage.update();
+
+
+      this.stage.debug.text = ((new Date().getTime() - this.start)/1000).toFixed(2);
    },
 
    onWindowResize: function()
    {
       this.updateUi();
+      this.navigator.onWindowResize();
    },
 
    initMap: function(mapid)
    {
+      this.mapid = mapid;
+      this.DemoMap = mapid === 0;
       // Demo map, it just display rock while in menu
-      if (mapid === 0)
+      if (this.DemoMap)
       {
          this.updateCamera = function() {};
          this.fakeStage.scaleX = this.fakeStage.scaleY = 0.5;
-         this.DemoMap = true;
       }
+
       if (Ses.Engine.Maps[mapid].scale)
       {
          this.fakeStage.scaleX = parseFloat(Ses.Engine.Maps[mapid].scale);
@@ -74,8 +89,13 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
          this.addGameObject(obj);
       }
 
-      if (mapid !== 0)
-         this.initKeyListeners();
+      if (this.DemoMap)
+         return;
+
+      this.showMapName();
+      this.initKeyListeners();
+      this.start = new Date().getTime();
+      this.lastFrameTime = 0;
    },
 
    initKeyListeners: function()
@@ -103,6 +123,11 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       Ses.Engine.addKeyListener('D', function(event) {
          if (event.type === 'keydown')
             this.useBox2dDebugDraw = !this.useBox2dDebugDraw;
+      });
+
+      Ses.Engine.addKeyListener('X', function(event) {
+         if (event.type === 'keydown')
+            self.onGameRestart();
       });
 
       this.stage.addEventListener('stagemousedown', function() {
@@ -169,13 +194,14 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       if (!this.ui)
          return;
 
-      this.ui.shape.y = Ses.Engine.ScreenHeight - this.ui.height - 10 //offset;
+      this.ui.shape.y = Ses.Engine.ScreenHeight - this.ui.height - 10; //offset;
       this.ui.shape.x = Ses.Engine.ScreenWidth/2 - this.ui.width/2;
    },
 
    setupShipUiAndCamera: function(ship)
    {
       this.cameraFollowObject = ship;
+      this.navigator.setCenter(ship.body.GetWorldCenter());
       if (!this.ui)
          this.setupUi();
 
@@ -277,20 +303,64 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
          object.setOnDieListener(function() {
             self.onGameOver();
          });
+         break;
+
+      case 'O_Track':
+         this.navigator.track(object);
+         obj.done = true;
+         break;
+      }
+   },
+
+   addScoreCondition: function (cond, object)
+   {
+      var self = this;
+      this.conditionsFor2Stars.push(false);
+      var i = this.conditionsFor2Stars.length - 1;
+
+      switch (cond) {
+
+      case 'SC_DeadFor2Stars':
+         object.watch('alive', function(oldval, newval) {
+            if (newval === false)
+               self.conditionsFor2Stars[i] = true;
+         });
+         break;
 
       }
+
    },
 
    onGameWin: function()
    {
-      this.onGameEnd();
-      Ses.Menu.showGameWin();
+      if (!this.onGameEnd())
+         return;
+
+      var stars = 2;
+      for (var i = 0; i < this.conditionsFor2Stars.length; ++i)
+         if (this.conditionsFor2Stars[i] === false) {
+            stars -= 1;
+            break;
+         }
+
+      var timeFor3Stars = parseFloat(Ses.Engine.Maps[this.mapid].time);
+      var playedTime = (new Date().getTime() - this.start)/1000;
+      if ( playedTime < timeFor3Stars )
+         stars += 1;
+
+      Ses.Menu.showGameWin(stars);
    },
 
    onGameOver: function()
    {
+      if (this.onGameEnd())
+         Ses.Menu.showGameOver();
+   },
+
+   onGameRestart: function()
+   {
       this.onGameEnd();
-      Ses.Menu.showGameOver();
+      Ses.Engine.restartMap();
    },
 
    onGameEnd: function()
@@ -298,7 +368,7 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       // while game over screen is being shown, the game is  still runing so we
       // can get callback, and this is our guard 
       if(this.fakeStage.gameOver)
-         return;
+         return false;
 
       // cleanup objectives
       this.mapObjectives = [];
@@ -315,8 +385,9 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
             self.gameObjects[i].update(self.fakeStage);
          self.stage.update();
       };
-
-      Ses.CssUi.hideSipStats();
+      
+      this.navigator.hide();
+      return true;
    },
 
    // This function is called when we change levels, so it clean up this map.
@@ -345,5 +416,24 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
          Ses.b2DebugDraw.e_jointBit
       );
       Ses.Physic.World.SetDebugDraw(debugDraw);
+   },
+
+   showMapName: function()
+   {
+      var name = new createjs.Text(Ses.Engine.Maps[this.mapid].name,
+            '40px TitilliumText25L400wt', '#ffffff');
+      name.x = Ses.Engine.ScreenWidth/2 - name.getMeasuredWidth()/2;
+      name.y = 50;
+
+      name.shadow = new createjs.Shadow('#0096ff', 0, 0, 8);
+
+      this.stage.addChild(name);
+      var self = this;
+      createjs.Tween.get(name, {loop:false})
+         .wait(1000)
+         .to({alpha: 0}, 3000, createjs.Ease.Linear)
+         .call(function() {
+            self.stage.removeChild(name);
+         });
    }
 });

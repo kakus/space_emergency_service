@@ -2,6 +2,8 @@ Ses.Entities.BrokenShip = Ses.Core.Entity.extend({
 
    init: function(x, y)
    {
+      this.currentHitPoints = 30;
+
       this.body = Ses.Physic.createRectangleObject(
          66/Ses.Engine.Scale/2,
          113/Ses.Engine.Scale/2,
@@ -36,6 +38,7 @@ Ses.Entities.BrokenShip = Ses.Core.Entity.extend({
       this.setKillable();
 
       switch (Ses.Engine.Graphics) {
+      case 'medium':
       case 'low':
          this.shape.cache(-66/2, -113/2, 66, 113, 1);
          s.draw = oldDraw;

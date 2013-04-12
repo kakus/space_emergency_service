@@ -58,6 +58,7 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
       //this.shape.y = -height/2;
 
       switch (Ses.Engine.Graphics) {
+      case 'medium':
       case 'low':
          this.shape.cache(-width/2, -height/2, width, height, 2);
          this.shape.draw = oldDraw;
@@ -93,6 +94,7 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
    startEngine: function(stage)
    {
       var power = 0.9;
+      power = power * stage.delta/1000 * 60;
 
       var impulse = new Ses.b2Vec2(
                Math.cos(this.body.GetAngle() - Math.PI/2) * power,
@@ -101,6 +103,7 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
 
       this.body.ApplyImpulse(impulse, this.body.GetWorldCenter());
 
+      // jet particle part
       var speed = this.body.GetLinearVelocity();
       var position = this.body.GetWorldCenter().Copy();
       impulse.NegativeSelf();
@@ -119,11 +122,6 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
 
    createJetParticle: function(position, stage)
    {
-      //var particle = new Ses.Entities.JetExhaustParticle(
-      //      position.x,
-      //      position.y,
-      //      0.05 + Math.random()*0.15
-      //);
       var particle = this.jetParticlePool.getOne();
       if (!particle)
          return;

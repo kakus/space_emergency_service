@@ -32,7 +32,14 @@ Ses.Engine.Factory = {
       },
 
       'CircleSensor': function(des) {
-         return new Ses.Entities.CircleSensor(des.x, des.y, des.width/2);
+         var sensor = new Ses.Entities.CircleSensor(des.x, des.y, des.width/2);
+         if (des.O_MoveThrough === undefined)
+         {
+            sensor.notCheckpoint();
+            des.SC_DeadFor2Stars = true;
+         }
+
+         return sensor;
       },
 
       'RectangleSensor': function(des) {
@@ -59,9 +66,15 @@ Ses.Engine.Factory = {
       var obj = this.factoryMethod[description.type](description);
 
       var isObjective = /O_.*/;
+      var isScoreCondition = /SC_.*/;
+
       for (var field in description)
+      {
          if (isObjective.test(field))
             this.gameView.addMapObjective(field, obj);
+         if (isScoreCondition.test(field))
+            this.gameView.addScoreCondition(field, obj);
+      }
 
       return obj;
    }

@@ -9,6 +9,7 @@ Ses.Entities.RectangleSensor = Ses.Entities.Sensor.extend({
 
    currentText: 0,
    docked: false,
+   trackColor: 'rgba(0, 255, 0, 0.5)',
 
    init: function(x, y, width, height)
    {

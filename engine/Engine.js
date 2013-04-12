@@ -20,7 +20,8 @@ Ses.Engine = {
       D: { code: 68, callbacks: [] },
       Q: { code: 81, callbacks: [] },
       W: { code: 87, callbacks: [] },
-      E: { code: 69, callbacks: [] }
+      E: { code: 69, callbacks: [] },
+      X: { code: 88, callbacks: [] }
 
    },
 
@@ -33,7 +34,7 @@ Ses.Engine = {
     *    * medium
     *    * high
     */
-   Graphics: 'high',
+   Graphics: 'medium',
 
 
    init: function(canvas)
@@ -165,7 +166,7 @@ Ses.Engine = {
    loadMaps: function ()
    {
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'maps/map2.json', false);
+      xhr.open('GET', 'maps/maps_0.1.b.json', false);
       xhr.onload = function () {
          Ses.Engine.processMaps(this.responseText);
       };
@@ -205,15 +206,38 @@ Ses.Engine = {
          }
 
          Ses.Engine.Maps.push(newMap);
-         Ses.Menu.addMap(newMap.name, (function(i) {
-            return function() {
-               Ses.Engine.changeView(Ses.Engine.GameView);
-               Ses.Engine.currentView.initMap(i);
-            };
-         })(i));
+         if ( i > 0 )
+            Ses.Menu.addMap(newMap.name, (function(i) {
+               return function() {
+                  Ses.Engine.changeView(Ses.Engine.GameView);
+                  Ses.Engine.currentView.initMap(i);
+               };
+            })(i));
       }
 
       Ses.log(Ses.Engine.Maps);
+   },
+
+   restartMap: function()
+   {
+      setTimeout(function() {
+         var mapid = Ses.Engine.currentView.mapid;
+         Ses.Engine.changeView(Ses.Engine.GameView);
+         Ses.Engine.currentView.initMap(mapid);
+      }, 60);
+   },
+
+   nextMap: function()
+   {
+      setTimeout(function() {
+         var mapid = Ses.Engine.currentView.mapid;
+         if (mapid < Ses.Engine.Maps.length - 1)
+            mapid += 1;
+
+         Ses.Engine.changeView(Ses.Engine.GameView);
+         Ses.Engine.currentView.initMap(mapid);
+      }, 60);
+
    },
 
    showDemo: function()

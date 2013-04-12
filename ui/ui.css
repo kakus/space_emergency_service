@@ -46,6 +46,10 @@ body {
    display: none;
 }
 
+#next-map {
+   display: none;
+}
+
 #canvas {
    /* -webkit-filter: blur(4px); */
    /* background-color: #111111; */

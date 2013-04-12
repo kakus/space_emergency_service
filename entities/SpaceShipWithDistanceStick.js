@@ -76,7 +76,7 @@ Ses.Entities.SpaceShipWithDistanceStick = Ses.Core.Entity.extend({
 
       var self = this;
       self.onCooldown = true;
-      setTimeout(function(){ self.onCooldown = false; }, 1000);
+      setTimeout(function(){ self.onCooldown = false; }, 600);
    },
 
    // delegate

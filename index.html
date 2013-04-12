@@ -9,12 +9,16 @@
       <div id="game_div">
          <canvas id="canvas" width="640" height="480"></canvas>
          <div id="level-choose" class="ui menu">
-               <h1> Space Emergency Service </h1>
+            <h1> Space Emergency Service </h1>
                <h2> Choose map: </h2>
          </div>
 
          <div id="game-end" class="ui menu">
-            <h1> mission fail </h1>
+            <h1> you shouldn't see this </h1>
+            <img src='img/stars3.png' width='150px' height='44px'></img>
+            <p> </p>
+            <div id="next-map" class="button"> <b> next map </b> </div>
+            <div id="restart" class="button"> restart </div>
             <div id="back-to-menu" class="button"> back to menu </div>
          </div>
       </div>
@@ -59,6 +63,7 @@
              "engine/Physic.js",
              "engine/View.js",
              "engine/GameView.js",
+             "engine/Navigator.js",
              "entities/EntityWithHitPointsBar.js",
              "entities/SpaceShip.js",
              "entities/SpaceRock.js",
