@@ -4,7 +4,31 @@ Ses.Menu = (function() {
        gameOver = document.getElementById('game-end'),
        canvas   = document.getElementById('canvas'),
        restartButton = document.getElementById('restart'),
+       graphicsQuality = document.getElementById('graphics-quality'),
        backToMenu = document.getElementById('back-to-menu');
+
+   graphicsQuality.innerHTML = 'graphics: high';
+   graphicsQuality.type = 2;
+   graphicsQuality.onclick = function() {
+
+      this.type = ( ++this.type ) % 3;
+      switch (graphicsQuality.type) {
+      case 0:
+         graphicsQuality.innerHTML = 'graphics: low';
+         Ses.Engine.Graphics = 'low';
+         break;
+
+      case 1:
+         graphicsQuality.innerHTML = 'graphics: medium';
+         Ses.Engine.Graphics = 'medium';
+         break;
+
+      case 2:
+         graphicsQuality.innerHTML = 'graphics: high';
+         Ses.Engine.Graphics = 'high';
+         break;
+      }
+   };
 
    restartButton.onclick = function() {
       gameOver.style.display = 'none';
@@ -41,12 +65,15 @@ Ses.Menu = (function() {
          var img = gameOver.querySelector('img');
          img.style.display = 'none';
 
+         var timeElapsed = gameOver.querySelector('p');
+         timeElapsed.innerHTML = '';
+
          var nextmap = gameOver.querySelector('#next-map');
          nextmap.style.display = 'none';
          gameOver.style.display = 'block';
       },
 
-      showGameWin: function(stars)
+      showGameWin: function(stars, time)
       {
          var h1 = gameOver.querySelector('h1');
          h1.innerHTML = 'mission succes';
@@ -54,6 +81,17 @@ Ses.Menu = (function() {
          var img = gameOver.querySelector('img');
          img.src = 'img/stars'+stars+'.png';
          img.style.display = 'inline';
+
+         var pad = function (n) {
+            if ( n > 9 ) return n;
+            else         return '0'+n;
+         };
+         var timeElapsed = gameOver.querySelector('p');
+         timeElapsed.innerHTML = 'Time: '+ pad(Math.floor(time/(60*1000))) //minutes
+                                         + ':'
+                                         + pad(Math.floor(time/1000))      //secodns
+                                         + '.'
+                                         + time % 1000;   // ms
 
          var nextmap = gameOver.querySelector('#next-map');
          nextmap.onclick = function() {

@@ -5,15 +5,6 @@ Ses.Engine = {
    Maps: [],
    currentView: null,
 
-   //BindedKeys: {
-   //   'DEBUG_KEY':   68,
-   //   'LEFT_ARROW':  37,
-   //   'RIGHT_ARROW': 39,
-   //   'UP_ARROW':    38,
-   //   'DOWN_ARROW':  40,
-   //   'SPACE':       32
-   //},
-
    KeyBindings: {
 
       Space: { code: 32, callbacks: [] },
@@ -34,7 +25,7 @@ Ses.Engine = {
     *    * medium
     *    * high
     */
-   Graphics: 'medium',
+   Graphics: 'high',
 
 
    init: function(canvas)

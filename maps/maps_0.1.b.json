@@ -1341,7 +1341,7 @@
                  "name":"Text",
                  "properties":
                     {
-                     "text":"To finish level you must fly only through all of yellow circles."
+                     "text":"To finish level you must fly through all yellow circles."
                     },
                  "type":"TextField",
                  "width":41,
@@ -1509,7 +1509,7 @@
                  "name":"Text",
                  "properties":
                     {
-                     "text":"Orage circles aren't important, unless you want a high score."
+                     "text":"If you want atleast 2 stars you must fly through all orange circles."
                     },
                  "type":"TextField",
                  "width":41,
@@ -1521,12 +1521,12 @@
                  "name":"Text",
                  "properties":
                     {
-                     "text":"Well done."
+                     "text":"To get 3rd start you must be quick."
                     },
                  "type":"TextField",
                  "width":41,
-                 "x":832,
-                 "y":365
+                 "x":828,
+                 "y":361
                 }],
          "opacity":1,
          "properties":
@@ -2267,18 +2267,6 @@
                  "width":10,
                  "x":420,
                  "y":576
-                }, 
-                {
-                 "height":12,
-                 "name":"Text",
-                 "properties":
-                    {
-                     "text":"You can zoom in and out using scroll."
-                    },
-                 "type":"TextField",
-                 "width":41,
-                 "x":201,
-                 "y":548
                 }, 
                 {
                  "height":120,
@@ -3362,7 +3350,7 @@
                  "name":"Text",
                  "properties":
                     {
-                     "text":"Try to pull this rock."
+                     "text":"Try to push this rock."
                     },
                  "type":"TextField",
                  "width":41,
@@ -3409,7 +3397,7 @@
          "properties":
             {
              "scale":"1.0",
-             "time":"14"
+             "time":"17"
             },
          "type":"objectgroup",
          "visible":false,
@@ -3785,7 +3773,7 @@
          "properties":
             {
              "scale":"1.0",
-             "time":"7.6"
+             "time":"8"
             },
          "type":"objectgroup",
          "visible":false,
@@ -3918,14 +3906,14 @@
                  "y":158
                 }, 
                 {
-                 "height":30,
+                 "height":60,
                  "name":"CircleSensor",
                  "properties":
                     {
                      "O_MoveThrough":""
                     },
                  "type":"CircleSensor",
-                 "width":30,
+                 "width":60,
                  "x":290,
                  "y":62
                 }, 
@@ -5197,7 +5185,7 @@
          "properties":
             {
              "scale":"1.0",
-             "time":"13"
+             "time":"16"
             },
          "type":"objectgroup",
          "visible":false,
@@ -5238,7 +5226,7 @@
                  "name":"Text",
                  "properties":
                     {
-                     "text":"This is broken ship. Your duty is to help them. Fire rope while aiming at the ship."
+                     "text":"This is broken ship. Your duty is to help them. Transport this ship into dock area.."
                     },
                  "type":"TextField",
                  "width":35,
@@ -5269,18 +5257,6 @@
                  "width":54,
                  "x":459,
                  "y":105
-                }, 
-                {
-                 "height":11,
-                 "name":"Text",
-                 "properties":
-                    {
-                     "text":"To fire a space rope press 'W'."
-                    },
-                 "type":"TextField",
-                 "width":35,
-                 "x":370,
-                 "y":212
                 }, 
                 {
                  "height":36,
@@ -5527,18 +5503,6 @@
                  "name":"Text",
                  "properties":
                     {
-                     "text":"Press 'E' to release rope"
-                    },
-                 "type":"TextField",
-                 "width":35,
-                 "x":369,
-                 "y":220
-                }, 
-                {
-                 "height":11,
-                 "name":"Text",
-                 "properties":
-                    {
                      "text":"You can fire up to 2 ropes, this stops object from rotating."
                     },
                  "type":"TextField",
@@ -5694,7 +5658,7 @@
          "properties":
             {
              "scale":"1.1",
-             "time":"13"
+             "time":"16"
             },
          "type":"objectgroup",
          "visible":false,
@@ -5704,7 +5668,7 @@
         }, 
         {
          "height":100,
-         "name":"Find them and save them",
+         "name":"Every day job",
          "objects":[
                 {
                  "height":10,
@@ -5736,7 +5700,7 @@
                  "name":"Text",
                  "properties":
                     {
-                     "text":"Find broken ship and save them. Tip of the day: follow the arrows."
+                     "text":"Find broken ship and save it. Tip of the day: follow the arrows."
                     },
                  "type":"TextField",
                  "width":35,
@@ -6312,7 +6276,7 @@
          "properties":
             {
              "scale":"1.0",
-             "time":"40"
+             "time":"45"
             },
          "type":"objectgroup",
          "visible":false,
@@ -6474,7 +6438,7 @@
                  "name":"Text",
                  "properties":
                     {
-                     "text":"Find them and save them ! Be quick !"
+                     "text":"Hurry up ! The ship is in danger !"
                     },
                  "type":"TextField",
                  "width":86,
@@ -6484,7 +6448,7 @@
          "opacity":1,
          "properties":
             {
-             "time":"30"
+             "time":"35"
             },
          "type":"objectgroup",
          "visible":false,

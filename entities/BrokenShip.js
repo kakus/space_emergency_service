@@ -38,8 +38,8 @@ Ses.Entities.BrokenShip = Ses.Core.Entity.extend({
       this.setKillable();
 
       switch (Ses.Engine.Graphics) {
-      case 'medium':
       case 'low':
+      case 'medium':
          this.shape.cache(-66/2, -113/2, 66, 113, 1);
          s.draw = oldDraw;
          break;

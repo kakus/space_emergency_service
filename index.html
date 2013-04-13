@@ -10,6 +10,7 @@
          <canvas id="canvas" width="640" height="480"></canvas>
          <div id="level-choose" class="ui menu">
             <h1> Space Emergency Service </h1>
+            <div id="graphics-quality" class="button"></div>
                <h2> Choose map: </h2>
          </div>
 
@@ -91,7 +92,7 @@
                 Ses.Engine.init(document.getElementById('canvas'));
                 Ses.Engine.loadMaps();
                 Ses.Engine.showDemo();
-                Ses.Engine.showStats();
+                //Ses.Engine.showStats();
              }
           });
       }

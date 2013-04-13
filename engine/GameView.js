@@ -28,10 +28,10 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
          true
       );
 
-      this.stage.debug = new createjs.Text('debug', '20px Arial', '#ffffff');
-      this.stage.debug.y = 100;
-      this.stage.debug.x = 10;
-      this.stage.addChild(stage.debug);
+      //this.stage.debug = new createjs.Text('debug', '20px Arial', '#ffffff');
+      //this.stage.debug.y = 100;
+      //this.stage.debug.x = 10;
+      //this.stage.addChild(stage.debug);
 
       this.initBox2dDebugDraw();
       this.navigator = new Ses.Engine.Navigator(this.fakeStage);
@@ -39,7 +39,6 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
 
    update: function(event)
    {
-      //Ses.Physic.World.Step(1/Ses.Engine.FPS, 10, 10);
       this.fakeStage.delta = event.delta;
       Ses.Physic.World.Step(event.delta/1000, 10, 10);
       Ses.Physic.World.ClearForces();
@@ -56,7 +55,7 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
          this.stage.update();
 
 
-      this.stage.debug.text = ((new Date().getTime() - this.start)/1000).toFixed(2);
+      //this.stage.debug.text = createjs.Ticker.getMeasuredFPS();//((new Date().getTime() - this.start)/1000).toFixed(2);
    },
 
    onWindowResize: function()
@@ -344,11 +343,11 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
          }
 
       var timeFor3Stars = parseFloat(Ses.Engine.Maps[this.mapid].time);
-      var playedTime = (new Date().getTime() - this.start)/1000;
-      if ( playedTime < timeFor3Stars )
+      var playedTime = new Date().getTime() - this.start;
+      if ( playedTime < timeFor3Stars * 1000 )
          stars += 1;
 
-      Ses.Menu.showGameWin(stars);
+      Ses.Menu.showGameWin(stars, playedTime);
    },
 
    onGameOver: function()
@@ -385,7 +384,7 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
             self.gameObjects[i].update(self.fakeStage);
          self.stage.update();
       };
-      
+
       this.navigator.hide();
       return true;
    },
