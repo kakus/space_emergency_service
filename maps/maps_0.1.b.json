@@ -5226,7 +5226,7 @@
                  "name":"Text",
                  "properties":
                     {
-                     "text":"This is broken ship. Your duty is to help them. Transport this ship into dock area.."
+                     "text":"This is a broken ship. Your duty is to help it. Transport this ship into dock area."
                     },
                  "type":"TextField",
                  "width":35,
@@ -5661,7 +5661,7 @@
              "time":"16"
             },
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":100,
          "x":0,
          "y":0

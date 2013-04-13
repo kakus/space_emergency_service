@@ -16,7 +16,7 @@ Ses.Ui.ArmourBars = Class.extend({
                              this.barHeigth+'px TitilliumText25L400wt', '#ffffff');
       this.targetText= new createjs.Text('',
                              this.barHeigth+'px TitilliumText25L400wt', '#ffffff');
-     
+
       this.setTargetText('Target Armour');
       this.targetBar.visible = false;
       this.targetText.visible = false;
@@ -76,6 +76,11 @@ Ses.Ui.ArmourBars = Class.extend({
       this.targetText.text = text;
       var width = this.targetText.getMeasuredWidth();
       this.targetText.x = this.width - width;
+   },
+
+   hide: function()
+   {
+      this.shape.visible = false;
    }
 
 });

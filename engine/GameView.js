@@ -386,6 +386,7 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       };
 
       this.navigator.hide();
+      this.ui.hide();
       return true;
    },
 

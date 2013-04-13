@@ -1,12 +1,14 @@
 Ses.Menu = (function() {
 
-   var levelChoose = document.getElementById('level-choose'),
+   var mainMenu = document.getElementById('main-menu'),
+       levels = document.getElementById('level-entries'),
        gameOver = document.getElementById('game-end'),
        canvas   = document.getElementById('canvas'),
        restartButton = document.getElementById('restart'),
        graphicsQuality = document.getElementById('graphics-quality'),
        backToMenu = document.getElementById('back-to-menu');
 
+   // buttons
    graphicsQuality.innerHTML = 'graphics: high';
    graphicsQuality.type = 2;
    graphicsQuality.onclick = function() {
@@ -38,7 +40,7 @@ Ses.Menu = (function() {
    backToMenu.onclick = function()
    {
       gameOver.style.display = 'none';
-      levelChoose.style.display = 'block';
+      mainMenu.style.display = 'block';
    };
 
    return {
@@ -49,11 +51,11 @@ Ses.Menu = (function() {
          mapLabel.className = 'ui button';
          mapLabel.innerHTML = mapName;
          mapLabel.onclick = function() {
-            levelChoose.style.display = 'none';
+            mainMenu.style.display = 'none';
             callback.call();
          };
 
-         levelChoose.appendChild(mapLabel);
+         levels.appendChild(mapLabel);
       },
 
       showGameOver: function()
@@ -86,10 +88,13 @@ Ses.Menu = (function() {
             if ( n > 9 ) return n;
             else         return '0'+n;
          };
+
+         var min = Math.floor(time/(60*1000));
+         var sec = Math.floor((time - min * 60*1000)/1000);
          var timeElapsed = gameOver.querySelector('p');
-         timeElapsed.innerHTML = 'Time: '+ pad(Math.floor(time/(60*1000))) //minutes
+         timeElapsed.innerHTML = 'Time: '+ pad(min) //minutes
                                          + ':'
-                                         + pad(Math.floor(time/1000))      //secodns
+                                         + pad(sec)      //secodns
                                          + '.'
                                          + time % 1000;   // ms
 

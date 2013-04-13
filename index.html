@@ -6,21 +6,36 @@
 
    </head>
    <body onload="init();">
+      <canvas id="canvas" width="640" height="480"></canvas>
       <div id="game_div">
-         <canvas id="canvas" width="640" height="480"></canvas>
-         <div id="level-choose" class="ui menu">
-            <h1> Space Emergency Service </h1>
-            <div id="graphics-quality" class="button"></div>
-               <h2> Choose map: </h2>
-         </div>
+         <!-- wraper that help us center menu div vertically -->
+         <div id="menu-wrapper" class="ui">
 
-         <div id="game-end" class="ui menu">
-            <h1> you shouldn't see this </h1>
-            <img src='img/stars3.png' width='150px' height='44px'></img>
-            <p> </p>
-            <div id="next-map" class="button"> <b> next map </b> </div>
-            <div id="restart" class="button"> restart </div>
-            <div id="back-to-menu" class="button"> back to menu </div>
+            <div id="main-menu">
+               <div class="ui menu">
+                  <h1> Space Emergency Service </h1>
+                  <div id="graphics-quality" class="button"></div>
+                  <h2> Choose map: </h2>
+                  <div id="level-entries"> </div>
+                  <div style='height: 20px'>  </div>
+               </div>
+               <div style='height: 20px'>  </div>
+               <div class="ui menu">
+               <small>created by K.Misiowiec | contact: <a
+                     href="mailto:mkakus@gmail.com">mkakus@gmail.com</a> |
+                  v0.1b</small>
+               </div>
+            </div>
+
+            <div id="game-end" class="ui menu">
+               <h1> you shouldn't see this </h1>
+               <img src='img/stars3.png' width='150px' height='44px'></img>
+               <p> </p>
+               <div id="next-map" class="button"> <b> next map </b> </div>
+               <div id="restart" class="button"> restart </div>
+               <div id="back-to-menu" class="button"> back to menu </div>
+            </div>
+
          </div>
       </div>
    </body>
@@ -92,9 +107,22 @@
                 Ses.Engine.init(document.getElementById('canvas'));
                 Ses.Engine.loadMaps();
                 Ses.Engine.showDemo();
-                //Ses.Engine.showStats();
+                Ses.Engine.showStats();
              }
           });
       }
+ </script>
+ <script type="text/javascript">
+
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-40120352-1']);
+     _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
 </script>
 </html>
