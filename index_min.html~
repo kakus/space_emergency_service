@@ -1,7 +1,6 @@
 <html>
    <head>
       <title>Space Emergency Services</title>
-      <link rel="SHORTCUT ICON" href="ses.ico">
       <link rel="stylesheet" type="text/css" href="fonts/titillium/stylesheet.css">
       <link rel="stylesheet" type="text/css" href="ui/ui.css">
       <script type="text/javascript">
@@ -50,7 +49,7 @@
                <div class="ui menu">
                <small>created by K.Misiowiec | contact: <a
                      href="mailto:mkakus@gmail.com">mkakus@gmail.com</a> |
-                  v0.2b</small>
+                  v0.1b</small>
                </div>
             </div>
 

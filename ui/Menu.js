@@ -66,8 +66,10 @@ Ses.Menu = (function() {
          var h1 = gameOver.querySelector('h1');
          h1.innerHTML = 'mission fail';
 
-         var img = gameOver.querySelector('img');
-         img.style.display = 'none';
+         [ '#stars1', '#stars2', '#stars3' ].forEach( function(id, i) {
+               var img = gameOver.querySelector(id);
+               img.style.display = 'none';
+         });
 
          var timeElapsed = gameOver.querySelector('p');
          timeElapsed.innerHTML = '';
@@ -87,9 +89,13 @@ Ses.Menu = (function() {
          var h1 = gameOver.querySelector('h1');
          h1.innerHTML = 'mission succes';
 
-         var img = gameOver.querySelector('img');
-         img.src = 'img/stars'+stars+'.png';
-         img.style.display = 'inline';
+         [ '#stars1', '#stars2', '#stars3' ].forEach( function(id, i) {
+            var img = gameOver.querySelector(id);
+            if ( stars === i + 1 )
+               img.style.display = 'inline';
+            else
+               img.style.display = 'none';
+         });
 
          var pad = function (n) {
             if ( n > 9 ) return n;
@@ -117,7 +123,7 @@ Ses.Menu = (function() {
          _gaq.push(['_trackEvent', levelName, 'win',
                     'stars', stars]);
          _gaq.push(['_trackEvent', levelName, 'win',
-                    'time', time/1000]);
+                    'time played', Math.floor(time/1000)]);
       }
 
    };
