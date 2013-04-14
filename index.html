@@ -6,7 +6,6 @@
 
    </head>
    <body onload="init();">
-      <canvas id="canvas" width="640" height="480"></canvas>
       <div id="game_div">
          <!-- wraper that help us center menu div vertically -->
          <div id="menu-wrapper" class="ui">
@@ -15,7 +14,7 @@
                <div class="ui menu">
                   <h1> Space Emergency Service </h1>
                   <div id="graphics-quality" class="button"></div>
-                  <h2> Choose map: </h2>
+                  <h2> Loading ... </h2>
                   <div id="level-entries"> </div>
                   <div style='height: 20px'>  </div>
                </div>
@@ -40,7 +39,7 @@
       </div>
    </body>
 
-   <script type="text/javascript" src="lib/Box2dWeb-2.1.a.3.js"></script>
+   <script type="text/javascript" src="lib/Box2dWeb-2.1.a.3.min.js"></script>
    <script type="text/javascript" src="lib/yepnope.1.5.3-min.js"></script>
    <script type="text/javascript" src='lib/easeljs-0.6.0.min.js'></script>
    <script type="text/javascript" src='lib/tweenjs-0.4.0.min.js'></script>
@@ -80,31 +79,38 @@
              "engine/View.js",
              "engine/GameView.js",
              "engine/Navigator.js",
-             "entities/EntityWithHitPointsBar.js",
              "entities/SpaceShip.js",
              "entities/SpaceRock.js",
-             "entities/SpaceShipWithRope.js",
              "entities/SpaceShipWithDistanceStick.js",
              "entities/Grasper.js",
              "entities/StingGrasper.js",
              "entities/Sensor.js",
-             "entities/MapBoundarySensor.js",
              "entities/CircleSensor.js",
              "entities/RectangleSensor.js",
              "entities/JetExhaustParticle.js",
              "entities/BrokenShip.js",
              "entities/TextField.js",
              "engine/Factory.js",
-             //"ui/Ui.js",
              "ui/ArmourBars.js",
-             "ui/CssUi.js",
              "ui/Menu.js"
           ];
 
           yepnope({
              load: scripts,
              complete: function() {
-                Ses.Engine.init(document.getElementById('canvas'));
+                // change Loading -> choose map
+             document.querySelector('h2').innerHTML = 'Choose map: ';
+                // add canvas
+                var canvas = document.createElement('canvas');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                canvas.id = 'canvas';
+
+                // at the begin of body, so it will be underneath menu
+                document.body.insertBefore(canvas, document.getElementById('game_div'));
+
+                // lets get started !
+                Ses.Engine.init(canvas);
                 Ses.Engine.loadMaps();
                 Ses.Engine.showDemo();
                 Ses.Engine.showStats();
@@ -112,17 +118,17 @@
           });
       }
  </script>
- <script type="text/javascript">
+<script type="text/javascript">
 
-     var _gaq = _gaq || [];
-     _gaq.push(['_setAccount', 'UA-40120352-1']);
-     _gaq.push(['_trackPageview']);
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40120352-1']);
+  _gaq.push(['_trackPageview']);
 
-     (function() {
-       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-     })();
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
 </script>
 </html>

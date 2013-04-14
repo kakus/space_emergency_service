@@ -257,24 +257,4 @@ Ses.Physic = {
       ///this.jointsToRemove.push(joint);
       Ses.Physic.World.DestroyJoint(joint);
    },
-
-   processJoints: function()
-   {
-      var i = 0,
-          def = null;
-
-      for(i = 0; i < this.jointsToCreate.length; ++i)
-      {
-         def = this.jointsToCreate[i];
-         Ses.Physic.World.CreateJoint(def);
-      }
-      this.jointsToCreate = [];
-
-      for(i = 0; i < this.jointsToRemove.length; ++i)
-      {
-         def = this.jointsToRemove[i];
-         Ses.Physic.World.RemoveJoint(def);
-      }
-      this.jointsToRemove= [];
-   }
 };

@@ -1,4 +1,5 @@
 /* global Ses */
+/* global _gaq */
 
 Ses.Engine = {
 
@@ -7,12 +8,13 @@ Ses.Engine = {
 
    KeyBindings: {
 
+      Esc:   { code: 27, callbacks: [] },
       Space: { code: 32, callbacks: [] },
-      D: { code: 68, callbacks: [] },
-      Q: { code: 81, callbacks: [] },
-      W: { code: 87, callbacks: [] },
-      E: { code: 69, callbacks: [] },
-      X: { code: 88, callbacks: [] }
+      D:     { code: 68, callbacks: [] },
+      Q:     { code: 81, callbacks: [] },
+      W:     { code: 87, callbacks: [] },
+      E:     { code: 69, callbacks: [] },
+      X:     { code: 88, callbacks: [] }
 
    },
 
@@ -70,11 +72,12 @@ Ses.Engine = {
       // Setup stage element from createjs, which is root object of all that
       // apear in canvas element
       this.stage = new createjs.Stage(canvas);
+      createjs.Touch.enable(this.stage, true);
       createjs.Ticker.addEventListener('tick', this.updateStage);
       createjs.Ticker.setFPS(Ses.Engine.FPS);
       createjs.Ticker.useRAF = true;
 
-      Ses.log("Engine Created");
+      //Ses.log("Engine Created");
    },
 
    updateStage: function(event)
@@ -157,7 +160,7 @@ Ses.Engine = {
    loadMaps: function ()
    {
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'maps/maps_0.1.b.json', false);
+      xhr.open('GET', 'maps/maps_0.2b.json', false);
       xhr.onload = function () {
          Ses.Engine.processMaps(this.responseText);
       };
@@ -198,23 +201,27 @@ Ses.Engine = {
 
          Ses.Engine.Maps.push(newMap);
          if ( i > 0 )
-            Ses.Menu.addMap(newMap.name, (function(i) {
+            Ses.Menu.addMap(newMap.name, (function(i, mapName) {
                return function() {
                   Ses.Engine.changeView(Ses.Engine.GameView);
                   Ses.Engine.currentView.initMap(i);
+                  // google analytics
+                  _gaq.push(['_trackEvent', mapName, 'start']);
                };
-            })(i));
+            })(i, newMap.name));
       }
 
-      Ses.log(Ses.Engine.Maps);
    },
 
    restartMap: function()
    {
       setTimeout(function() {
          var mapid = Ses.Engine.currentView.mapid;
+
          Ses.Engine.changeView(Ses.Engine.GameView);
          Ses.Engine.currentView.initMap(mapid);
+
+         _gaq.push(['_trackEvent', Ses.Engine.Maps[mapid].name, 'restart']);
       }, 60);
    },
 

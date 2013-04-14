@@ -1077,74 +1077,74 @@
   <object type="SpaceRock" x="715" y="236" width="120" height="120"/>
   <object type="SpaceRock" x="714" y="115" width="120" height="120"/>
  </objectgroup>
- <objectgroup name="Basic of space haul" width="100" height="100">
+ <objectgroup name="Basic of space haul" width="100" height="100" visible="0">
   <properties>
    <property name="scale" value="1.1"/>
    <property name="time" value="16"/>
   </properties>
-  <object name="BrokenShip" type="BrokenShip" x="411" y="182" width="10" height="10">
+  <object name="BrokenShip" type="BrokenShip" x="370" y="454" width="10" height="10">
    <properties>
     <property name="O_CantDie" value=""/>
    </properties>
   </object>
-  <object name="SpaceShip" type="SpaceShipWithDistanceStick" x="385" y="184">
+  <object name="SpaceShip" type="SpaceShipWithDistanceStick" x="344" y="456">
    <properties>
     <property name="O_CantDie" value=""/>
    </properties>
   </object>
-  <object name="Text" type="TextField" x="370" y="149" width="35" height="11">
+  <object name="Text" type="TextField" x="329" y="421" width="35" height="11">
    <properties>
     <property name="text" value="This is a broken ship. Your duty is to help it. Transport this ship into dock area."/>
    </properties>
   </object>
-  <object name="Baza" type="RectangleSensor" x="655" y="161" width="61" height="55">
+  <object name="Baza" type="RectangleSensor" x="614" y="433" width="61" height="55">
    <properties>
     <property name="O_StopInHere" value=""/>
     <property name="O_Track" value=""/>
    </properties>
   </object>
-  <object type="SpaceRock" x="459" y="105" width="54" height="52"/>
-  <object type="SpaceRock" x="355" y="305" width="39" height="36"/>
-  <object type="SpaceRock" x="252" y="224" width="100" height="100"/>
-  <object type="SpaceRock" x="526" y="257" width="100" height="100"/>
-  <object type="SpaceRock" x="344" y="15" width="100" height="100"/>
-  <object type="SpaceRock" x="721" y="32" width="100" height="100"/>
-  <object type="SpaceRock" x="784" y="145" width="100" height="100"/>
-  <object type="SpaceRock" x="418" y="272" width="39" height="36"/>
-  <object type="SpaceRock" x="599" y="39" width="39" height="36"/>
-  <object type="SpaceRock" x="766" y="269" width="15" height="14"/>
-  <object type="SpaceRock" x="739" y="280" width="15" height="14"/>
-  <object type="SpaceRock" x="701" y="281" width="15" height="14"/>
-  <object type="SpaceRock" x="727" y="248" width="15" height="14"/>
-  <object type="SpaceRock" x="685" y="249" width="15" height="14"/>
-  <object type="SpaceRock" x="653" y="263" width="15" height="14"/>
-  <object type="SpaceRock" x="535" y="78" width="15" height="14"/>
-  <object type="SpaceRock" x="490" y="76" width="15" height="14"/>
-  <object type="SpaceRock" x="190" y="120" width="15" height="14"/>
-  <object type="SpaceRock" x="205" y="272" width="15" height="14"/>
-  <object type="SpaceRock" x="686" y="406" width="15" height="14"/>
-  <object type="SpaceRock" x="480" y="405" width="15" height="14">
+  <object type="SpaceRock" x="418" y="377" width="54" height="52"/>
+  <object type="SpaceRock" x="314" y="577" width="39" height="36"/>
+  <object type="SpaceRock" x="211" y="496" width="100" height="100"/>
+  <object type="SpaceRock" x="485" y="529" width="100" height="100"/>
+  <object type="SpaceRock" x="303" y="287" width="100" height="100"/>
+  <object type="SpaceRock" x="680" y="304" width="100" height="100"/>
+  <object type="SpaceRock" x="743" y="417" width="100" height="100"/>
+  <object type="SpaceRock" x="377" y="544" width="39" height="36"/>
+  <object type="SpaceRock" x="558" y="311" width="39" height="36"/>
+  <object type="SpaceRock" x="725" y="541" width="15" height="14"/>
+  <object type="SpaceRock" x="698" y="552" width="15" height="14"/>
+  <object type="SpaceRock" x="660" y="553" width="15" height="14"/>
+  <object type="SpaceRock" x="686" y="520" width="15" height="14"/>
+  <object type="SpaceRock" x="644" y="521" width="15" height="14"/>
+  <object type="SpaceRock" x="612" y="535" width="15" height="14"/>
+  <object type="SpaceRock" x="494" y="350" width="15" height="14"/>
+  <object type="SpaceRock" x="449" y="348" width="15" height="14"/>
+  <object type="SpaceRock" x="149" y="392" width="15" height="14"/>
+  <object type="SpaceRock" x="164" y="544" width="15" height="14"/>
+  <object type="SpaceRock" x="645" y="678" width="15" height="14"/>
+  <object type="SpaceRock" x="439" y="677" width="15" height="14">
    <properties>
     <property name="fy" value="-4"/>
    </properties>
   </object>
-  <object name="Text" type="TextField" x="588" y="219" width="35" height="11">
+  <object name="Text" type="TextField" x="547" y="491" width="35" height="11">
    <properties>
     <property name="text" value="You can fire up to 2 ropes, this stops object from rotating."/>
    </properties>
   </object>
-  <object type="SpaceRock" x="244" y="75" width="100" height="100"/>
-  <object type="SpaceRock" x="416" y="313" width="100" height="100"/>
-  <object type="SpaceRock" x="633" y="300" width="100" height="100"/>
-  <object type="SpaceRock" x="437" y="-15" width="100" height="100"/>
-  <object type="SpaceRock" x="526" y="-38" width="100" height="100"/>
-  <object type="SpaceRock" x="626" y="-45" width="100" height="100"/>
-  <object type="SpaceRock" x="801" y="249" width="100" height="100"/>
-  <object type="SpaceRock" x="739" y="350" width="100" height="100"/>
-  <object type="SpaceRock" x="307" y="348" width="100" height="100"/>
-  <object type="SpaceRock" x="143" y="148" width="100" height="100"/>
-  <object type="SpaceRock" x="295" y="180" width="39" height="36"/>
-  <object type="SpaceRock" x="683" y="60" width="39" height="36"/>
+  <object type="SpaceRock" x="203" y="347" width="100" height="100"/>
+  <object type="SpaceRock" x="375" y="585" width="100" height="100"/>
+  <object type="SpaceRock" x="592" y="572" width="100" height="100"/>
+  <object type="SpaceRock" x="396" y="257" width="100" height="100"/>
+  <object type="SpaceRock" x="485" y="234" width="100" height="100"/>
+  <object type="SpaceRock" x="585" y="227" width="100" height="100"/>
+  <object type="SpaceRock" x="760" y="521" width="100" height="100"/>
+  <object type="SpaceRock" x="698" y="622" width="100" height="100"/>
+  <object type="SpaceRock" x="266" y="620" width="100" height="100"/>
+  <object type="SpaceRock" x="102" y="420" width="100" height="100"/>
+  <object type="SpaceRock" x="254" y="452" width="39" height="36"/>
+  <object type="SpaceRock" x="642" y="332" width="39" height="36"/>
  </objectgroup>
  <objectgroup name="Every day job" width="100" height="100" visible="0">
   <properties>
@@ -1228,36 +1228,36 @@
   <properties>
    <property name="time" value="35"/>
   </properties>
-  <object name="BrokenShip" type="BrokenShip" x="321" y="264" width="10" height="10">
+  <object name="BrokenShip" type="BrokenShip" x="491" y="478" width="10" height="10">
    <properties>
     <property name="O_CantDie" value=""/>
     <property name="O_Track" value=""/>
    </properties>
   </object>
-  <object name="SpaceShip" type="SpaceShipWithDistanceStick" x="91" y="92">
+  <object name="SpaceShip" type="SpaceShipWithDistanceStick" x="261" y="306">
    <properties>
     <property name="O_CantDie" value=""/>
    </properties>
   </object>
-  <object type="SpaceRock" x="159" y="215" width="134" height="116"/>
-  <object type="SpaceRock" x="232" y="32" width="140" height="147"/>
-  <object type="SpaceRock" x="357" y="199" width="314" height="255"/>
-  <object type="SpaceRock" x="126" y="110" width="80" height="80"/>
-  <object type="SpaceRock" x="53" y="131" width="54" height="52"/>
-  <object type="SpaceRock" x="129" y="59" width="21" height="22"/>
-  <object type="SpaceRock" x="64" y="209" width="54" height="52"/>
-  <object type="SpaceRock" x="385" y="122" width="54" height="52"/>
-  <object name="Baza" type="RectangleSensor" x="17" y="19" width="61" height="55">
+  <object type="SpaceRock" x="329" y="429" width="134" height="116"/>
+  <object type="SpaceRock" x="402" y="246" width="140" height="147"/>
+  <object type="SpaceRock" x="527" y="413" width="314" height="255"/>
+  <object type="SpaceRock" x="296" y="324" width="80" height="80"/>
+  <object type="SpaceRock" x="223" y="345" width="54" height="52"/>
+  <object type="SpaceRock" x="299" y="273" width="21" height="22"/>
+  <object type="SpaceRock" x="234" y="423" width="54" height="52"/>
+  <object type="SpaceRock" x="555" y="336" width="54" height="52"/>
+  <object name="Baza" type="RectangleSensor" x="187" y="233" width="61" height="55">
    <properties>
     <property name="O_StopInHere" value=""/>
    </properties>
   </object>
-  <object type="SpaceRock" x="296" y="540" width="54" height="52">
+  <object type="SpaceRock" x="466" y="754" width="54" height="52">
    <properties>
     <property name="fy" value="-2.5"/>
    </properties>
   </object>
-  <object name="Text" type="TextField" x="88" y="21" width="86" height="15">
+  <object name="Text" type="TextField" x="258" y="235" width="86" height="15">
    <properties>
     <property name="text" value="Hurry up ! The ship is in danger !"/>
    </properties>
@@ -1268,169 +1268,169 @@
    <property name="scale" value="0.6"/>
    <property name="time" value="11"/>
   </properties>
-  <object type="CircleSensor" x="454" y="-4" width="50" height="50">
+  <object type="CircleSensor" x="484" y="180" width="50" height="50">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="SpaceRock" x="116" y="12" width="54" height="52"/>
-  <object type="SpaceRock" x="81" y="12" width="24" height="22"/>
-  <object type="SpaceRock" x="200" y="310" width="54" height="52"/>
-  <object type="SpaceRock" x="474" y="229" width="148" height="142"/>
-  <object type="SpaceRock" x="4" y="47" width="54" height="52"/>
-  <object type="SpaceShipWithDistanceStick" x="255" y="411" width="10" height="10">
+  <object type="SpaceRock" x="146" y="196" width="54" height="52"/>
+  <object type="SpaceRock" x="111" y="196" width="24" height="22"/>
+  <object type="SpaceRock" x="230" y="494" width="54" height="52"/>
+  <object type="SpaceRock" x="504" y="413" width="148" height="142"/>
+  <object type="SpaceRock" x="34" y="231" width="54" height="52"/>
+  <object type="SpaceShipWithDistanceStick" x="285" y="595" width="10" height="10">
    <properties>
     <property name="O_CantDie" value=""/>
    </properties>
   </object>
-  <object type="SpaceRock" x="-97" y="314" width="190" height="190">
+  <object type="SpaceRock" x="-67" y="498" width="190" height="190">
    <properties>
     <property name="fx" value="8"/>
    </properties>
   </object>
-  <object type="SpaceRock" x="528" y="446" width="190" height="190"/>
-  <object type="SpaceRock" x="754" y="264" width="190" height="190"/>
-  <object type="SpaceRock" x="543" y="-99" width="190" height="190"/>
-  <object type="SpaceRock" x="711" y="67" width="190" height="190"/>
-  <object type="SpaceRock" x="359" y="315" width="54" height="52"/>
-  <object type="SpaceRock" x="257" y="314" width="54" height="52"/>
-  <object type="SpaceRock" x="308" y="315" width="54" height="52"/>
-  <object type="SpaceRock" x="183" y="22" width="54" height="52"/>
-  <object type="SpaceRock" x="106" y="87" width="54" height="52"/>
-  <object type="SpaceRock" x="364" y="138" width="104" height="100">
+  <object type="SpaceRock" x="558" y="630" width="190" height="190"/>
+  <object type="SpaceRock" x="784" y="448" width="190" height="190"/>
+  <object type="SpaceRock" x="573" y="85" width="190" height="190"/>
+  <object type="SpaceRock" x="741" y="251" width="190" height="190"/>
+  <object type="SpaceRock" x="389" y="499" width="54" height="52"/>
+  <object type="SpaceRock" x="287" y="498" width="54" height="52"/>
+  <object type="SpaceRock" x="338" y="499" width="54" height="52"/>
+  <object type="SpaceRock" x="213" y="206" width="54" height="52"/>
+  <object type="SpaceRock" x="136" y="271" width="54" height="52"/>
+  <object type="SpaceRock" x="394" y="322" width="104" height="100">
    <properties>
     <property name="fy" value="3"/>
    </properties>
   </object>
-  <object type="SpaceRock" x="166" y="82" width="54" height="52"/>
-  <object type="SpaceRock" x="121" y="144" width="54" height="52"/>
-  <object type="SpaceRock" x="346" y="451" width="54" height="52"/>
-  <object type="SpaceRock" x="286" y="450" width="54" height="52"/>
-  <object type="SpaceRock" x="399" y="449" width="54" height="52"/>
-  <object type="SpaceRock" x="225" y="454" width="54" height="52"/>
-  <object type="SpaceRock" x="461" y="448" width="54" height="52"/>
-  <object type="SpaceRock" x="722" y="452" width="54" height="52"/>
-  <object type="SpaceRock" x="137" y="266" width="54" height="52"/>
-  <object type="SpaceRock" x="91" y="240" width="54" height="52"/>
-  <object type="SpaceRock" x="38" y="213" width="54" height="52"/>
-  <object type="SpaceRock" x="174" y="495" width="54" height="52"/>
-  <object type="SpaceRock" x="127" y="526" width="54" height="52"/>
-  <object type="SpaceRock" x="71" y="556" width="54" height="52"/>
-  <object type="SpaceRock" x="1001" y="55" width="500" height="500">
+  <object type="SpaceRock" x="196" y="266" width="54" height="52"/>
+  <object type="SpaceRock" x="151" y="328" width="54" height="52"/>
+  <object type="SpaceRock" x="376" y="635" width="54" height="52"/>
+  <object type="SpaceRock" x="316" y="634" width="54" height="52"/>
+  <object type="SpaceRock" x="429" y="633" width="54" height="52"/>
+  <object type="SpaceRock" x="255" y="638" width="54" height="52"/>
+  <object type="SpaceRock" x="491" y="632" width="54" height="52"/>
+  <object type="SpaceRock" x="752" y="636" width="54" height="52"/>
+  <object type="SpaceRock" x="167" y="450" width="54" height="52"/>
+  <object type="SpaceRock" x="121" y="424" width="54" height="52"/>
+  <object type="SpaceRock" x="68" y="397" width="54" height="52"/>
+  <object type="SpaceRock" x="204" y="679" width="54" height="52"/>
+  <object type="SpaceRock" x="157" y="710" width="54" height="52"/>
+  <object type="SpaceRock" x="101" y="740" width="54" height="52"/>
+  <object type="SpaceRock" x="1031" y="239" width="500" height="500">
    <properties>
     <property name="fx" value="-1.5"/>
    </properties>
   </object>
-  <object type="CircleSensor" x="321" y="406" width="10" height="10">
+  <object type="CircleSensor" x="351" y="590" width="10" height="10">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="364" y="406" width="10" height="10">
+  <object type="CircleSensor" x="394" y="590" width="10" height="10">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="408" y="405" width="10" height="10">
+  <object type="CircleSensor" x="438" y="589" width="10" height="10">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="451" y="405" width="10" height="10">
+  <object type="CircleSensor" x="481" y="589" width="10" height="10">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="495" y="405" width="10" height="10">
+  <object type="CircleSensor" x="525" y="589" width="10" height="10">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="538" y="405" width="10" height="10">
+  <object type="CircleSensor" x="568" y="589" width="10" height="10">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="583" y="405" width="10" height="10">
+  <object type="CircleSensor" x="613" y="589" width="10" height="10">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="627" y="399" width="17" height="17">
+  <object type="CircleSensor" x="657" y="583" width="17" height="17">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="674" y="377" width="25" height="25">
+  <object type="CircleSensor" x="704" y="561" width="25" height="25">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="SpaceRock" x="332" y="30" width="104" height="100">
+  <object type="SpaceRock" x="362" y="214" width="104" height="100">
    <properties>
     <property name="fy" value="3"/>
    </properties>
   </object>
-  <object type="SpaceRock" x="416" y="314" width="54" height="52"/>
-  <object type="CircleSensor" x="702" y="324" width="45" height="45">
+  <object type="SpaceRock" x="446" y="498" width="54" height="52"/>
+  <object type="CircleSensor" x="732" y="508" width="45" height="45">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="679" y="220" width="32" height="32">
+  <object type="CircleSensor" x="709" y="404" width="32" height="32">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="647" y="179" width="25" height="25">
+  <object type="CircleSensor" x="677" y="363" width="25" height="25">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="621" y="155" width="17" height="17">
+  <object type="CircleSensor" x="651" y="339" width="17" height="17">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="497" y="53" width="17" height="17">
+  <object type="CircleSensor" x="527" y="237" width="17" height="17">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="SpaceRock" x="477" y="147" width="70" height="70">
+  <object type="SpaceRock" x="507" y="331" width="70" height="70">
    <properties>
     <property name="" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="596" y="134" width="17" height="17">
+  <object type="CircleSensor" x="626" y="318" width="17" height="17">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="561" y="105" width="17" height="17">
+  <object type="CircleSensor" x="591" y="289" width="17" height="17">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="528" y="82" width="17" height="17">
+  <object type="CircleSensor" x="558" y="266" width="17" height="17">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
-  <object type="CircleSensor" x="706" y="266" width="45" height="45">
+  <object type="CircleSensor" x="736" y="450" width="45" height="45">
    <properties>
     <property name="O_MoveThrough" value=""/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Catch a ride !" width="100" height="100" visible="0">
+ <objectgroup name="Catch a ride !" width="100" height="100">
   <properties>
    <property name="scale" value="0.8"/>
    <property name="time" value="10"/>
   </properties>
-  <object type="SpaceRock" x="1" y="-950" width="1000" height="1000">
+  <object type="SpaceRock" x="1" y="-994" width="1000" height="1000">
    <properties>
-    <property name="fy" value="10"/>
+    <property name="fy" value="9"/>
    </properties>
   </object>
   <object type="SpaceRock" x="-4" y="588" width="1000" height="1000">
@@ -1440,7 +1440,7 @@
   </object>
   <object type="SpaceRock" x="12" y="364" width="100" height="100">
    <properties>
-    <property name="fx" value="22"/>
+    <property name="fx" value="25"/>
    </properties>
   </object>
   <object type="SpaceShipWithDistanceStick" x="209" y="481" width="10" height="10">

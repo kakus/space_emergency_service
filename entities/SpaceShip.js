@@ -1,5 +1,8 @@
 Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
 
+   worldCenter: new Box2D.Common.Math.b2Vec2(50, 50),
+   frameCounter: 0,
+
    init: function(x, y)
    {
       this.currentHitPoints = this.maxHitPoints;
@@ -73,15 +76,17 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
       if(fakeStage.gameOver)
          return;
 
-      var x = fakeStage.getStage().mouseX;
-      var y = fakeStage.getStage().mouseY;
-      var p = fakeStage.getStage().localToLocal(x, y, fakeStage);
+      var stage = fakeStage.getStage(),
+          x = stage.mouseX,
+          y = stage.mouseY,
+          p = stage.localToLocal(x, y, fakeStage),
+          shipPos = this.body.GetWorldCenter();
 
       x = p.x / Ses.Engine.Scale;
       y = p.y / Ses.Engine.Scale;
 
-      x -= this.body.GetWorldCenter().x;
-      y -= this.body.GetWorldCenter().y;
+      x -= shipPos.x;
+      y -= shipPos.y;
 
       this.body.SetAngle(Math.atan2(y, x) + Math.PI/2);
 
@@ -89,6 +94,17 @@ Ses.Entities.SpaceShip = Ses.Core.Entity.extend({
 
       if(fakeStage.StartEngine)
          this.startEngine(fakeStage);
+
+      // every four frames we check distance of spaceship from the center of map
+      if ((++this.frameCounter % 4) === 0)
+      {
+         var dist = shipPos.Copy();
+         dist.Subtract(this.worldCenter);
+         dist = dist.Length();
+
+         if (dist > 105)
+            fakeStage.spaceShipOutOfMap( dist );
+      }
    },
 
    startEngine: function(stage)

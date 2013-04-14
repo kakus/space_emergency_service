@@ -1,0 +1,100 @@
+<html>
+   <head>
+      <title>Space Emergency Services</title>
+      <link rel="stylesheet" type="text/css" href="fonts/titillium/stylesheet.css">
+      <link rel="stylesheet" type="text/css" href="ui/ui.css">
+      <script>
+
+          window.Ses = {
+             Core: {},
+             Engine: {},
+             Physic: {},
+             Entities: {},
+             Sound: {},
+             Ui: {},
+             log: function(string) {
+                console.log(string);
+             },
+             err: function(string) {
+                console.log('Err: '+string);
+             }
+          };
+
+       </script>
+   </head>
+   <body onload="init();">
+      <div id="game_div">
+         <!-- wraper that help us center menu div vertically -->
+         <div id="menu-wrapper" class="ui">
+
+            <div id="main-menu">
+               <div class="ui menu">
+                  <h1> Space Emergency Service </h1>
+                  <div id="graphics-quality" class="button"></div>
+                  <h2> Loading ... </h2>
+                  <div id="level-entries"> </div>
+                  <div style='height: 20px'>  </div>
+               </div>
+               <div style='height: 20px'>  </div>
+               <div class="ui menu">
+               <small>created by K.Misiowiec | contact: <a
+                     href="mailto:mkakus@gmail.com">mkakus@gmail.com</a> |
+                  v0.1b</small>
+               </div>
+            </div>
+
+            <div id="game-end" class="ui menu">
+               <h1> you shouldn't see this </h1>
+               <img src='img/stars3.png' width='150px' height='44px'></img>
+               <p> </p>
+               <div id="next-map" class="button"> <b> next map </b> </div>
+               <div id="restart" class="button"> restart </div>
+               <div id="back-to-menu" class="button"> back to menu </div>
+            </div>
+
+         </div>
+      </div>
+   </body>
+
+   <script type="text/javascript" src="build/ses.min.js"></script>
+         
+
+   <script type="text/javascript">
+      function init() {
+
+          "use strict";
+
+          /* Creating namspace */
+
+                // change Loading -> choose map
+             document.querySelector('h2').innerHTML = 'Choose map: ';
+                // add canvas
+                var canvas = document.createElement('canvas');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                canvas.id = 'canvas';
+
+                // at the begin of body, so it will be underneath menu
+                document.body.insertBefore(canvas, document.getElementById('game_div'));
+
+                // lets get started !
+                Ses.Engine.init(canvas);
+                Ses.Engine.loadMaps();
+                Ses.Engine.showDemo();
+                Ses.Engine.showStats();
+      }
+ </script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40120352-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>

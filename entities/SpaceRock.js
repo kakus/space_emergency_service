@@ -35,7 +35,6 @@ Ses.Entities.SpaceRock = Ses.Core.Entity.extend({
          catch (err)
          {
             var x = Box2D.Common.Separator.Validate(v);
-            Ses.log(Box2D.Common.Separator.validateToString(x)+' : '+size);
             //throw err;
          }
       }

@@ -1,3 +1,5 @@
+/* global _gaq */
+
 Ses.Menu = (function() {
 
    var mainMenu = document.getElementById('main-menu'),
@@ -58,7 +60,7 @@ Ses.Menu = (function() {
          levels.appendChild(mapLabel);
       },
 
-      showGameOver: function()
+      showGameOver: function(levelName, time)
       {
          //canvas.style['-webkit-filter'] = 'blur(2px)';
          var h1 = gameOver.querySelector('h1');
@@ -73,9 +75,14 @@ Ses.Menu = (function() {
          var nextmap = gameOver.querySelector('#next-map');
          nextmap.style.display = 'none';
          gameOver.style.display = 'block';
+
+         // google analytics
+         _gaq.push(['_trackEvent', levelName, 'fail',
+                    'time', time/1000]);
+
       },
 
-      showGameWin: function(stars, time)
+      showGameWin: function(levelName, time, stars)
       {
          var h1 = gameOver.querySelector('h1');
          h1.innerHTML = 'mission succes';
@@ -105,6 +112,12 @@ Ses.Menu = (function() {
          };
          nextmap.style.display = 'block';
          gameOver.style.display = 'block';
+
+         // google analytics
+         _gaq.push(['_trackEvent', levelName, 'win',
+                    'stars', stars]);
+         _gaq.push(['_trackEvent', levelName, 'win',
+                    'time', time/1000]);
       }
 
    };

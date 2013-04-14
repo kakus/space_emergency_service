@@ -20,6 +20,7 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       [this.stage, this.fakeStage].forEach(function(stage) {
          stage.addGameObject =    function(o) { self.addGameObject(o); };
          stage.removeGameObject = function(o) { self.removeGameObject(o); };
+         stage.spaceShipOutOfMap = function(o) { self.spaceShipOutOfMap(o); };
       });
 
       //init physic
@@ -33,7 +34,7 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       //this.stage.debug.x = 10;
       //this.stage.addChild(stage.debug);
 
-      this.initBox2dDebugDraw();
+      //this.initBox2dDebugDraw();
       this.navigator = new Ses.Engine.Navigator(this.fakeStage);
    },
 
@@ -49,10 +50,10 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       this.updateCamera();
       this.navigator.update();
 
-      if (this.useBox2dDebugDraw)
-         Ses.Physic.World.DrawDebugData();
-      else
-         this.stage.update();
+      //if (this.useBox2dDebugDraw)
+      //   Ses.Physic.World.DrawDebugData();
+      //else
+      this.stage.update();
 
 
       //this.stage.debug.text = createjs.Ticker.getMeasuredFPS();//((new Date().getTime() - this.start)/1000).toFixed(2);
@@ -119,9 +120,14 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
          })(key);
       }
 
-      Ses.Engine.addKeyListener('D', function(event) {
+      //Ses.Engine.addKeyListener('D', function(event) {
+      //   if (event.type === 'keydown')
+      //      this.useBox2dDebugDraw = !this.useBox2dDebugDraw;
+      //});
+
+      Ses.Engine.addKeyListener('Esc', function(event) {
          if (event.type === 'keydown')
-            this.useBox2dDebugDraw = !this.useBox2dDebugDraw;
+            self.onGameOver();
       });
 
       Ses.Engine.addKeyListener('X', function(event) {
@@ -129,11 +135,13 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
             self.onGameRestart();
       });
 
-      this.stage.addEventListener('stagemousedown', function() {
-         self.fakeStage.StartEngine = true;
+      this.stage.addEventListener('stagemousedown', function(event) {
+         if (event.nativeEvent.button === 0)
+            self.fakeStage.StartEngine = true;
       });
-      this.stage.addEventListener('stagemouseup', function() {
-         self.fakeStage.StartEngine = false;
+      this.stage.addEventListener('stagemouseup', function(event) {
+         if (event.nativeEvent.button === 0)
+            self.fakeStage.StartEngine = false;
       });
 
       Ses.Engine.addMouseScrollListener(function(delta) {
@@ -284,7 +292,6 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
             object.docking = null;
          });
          object.watch('docked', function(oldval, newval) {
-            Ses.log(oldval +' n: ' + newval);
             if (newval)
                obj.setDone();
          });
@@ -347,13 +354,16 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
       if ( playedTime < timeFor3Stars * 1000 )
          stars += 1;
 
-      Ses.Menu.showGameWin(stars, playedTime);
+      var mapName = Ses.Engine.Maps[this.mapid].name;
+      Ses.Menu.showGameWin(mapName, playedTime, stars);
    },
 
    onGameOver: function()
    {
+      var playedTime = new Date().getTime() - this.start;
+      var mapName = Ses.Engine.Maps[this.mapid].name;
       if (this.onGameEnd())
-         Ses.Menu.showGameOver();
+         Ses.Menu.showGameOver(mapName, playedTime);
    },
 
    onGameRestart: function()
@@ -365,7 +375,8 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
    onGameEnd: function()
    {
       // while game over screen is being shown, the game is  still runing so we
-      // can get callback, and this is our guard 
+      // can get callback, and this is our guard so our game end want be called
+      // twice
       if(this.fakeStage.gameOver)
          return false;
 
@@ -435,5 +446,53 @@ Ses.Engine.GameView = Ses.Engine.View.extend({
          .call(function() {
             self.stage.removeChild(name);
          });
+   },
+
+   spaceShipOutOfMap: function(dist)
+   {
+      this.displayWarning = true;
+      // if waring is displayed just return
+      if (this.outOfMap) return;
+
+      // create warning text if it doesnt exist
+      if (!this.warning)
+      {
+         var warning = new createjs.Text(
+               'You are flying through the endless space, please consider ' +
+               'pressing "X" to restart the map.',
+               '30px TitilliumText25L400wt', '#ffffff');
+         warning.y = 50;
+
+         warning.shadow = new createjs.Shadow('#ff0000', 0, 0, 8);
+         this.warning = warning;
+         this.stage.addChild(this.warning);
+      }
+
+      // center warning on screen
+      this.warning.lineWidth = Ses.Engine.ScreenWidth - 100;
+      this.warning.x = Ses.Engine.ScreenWidth/2 - this.warning.lineWidth/2;
+      this.warning.visible = true;
+      this.outOfMap = this.warning;
+      var self = this;
+
+      createjs.Tween.get(this.warning, {loop:true})
+         .to({alpha: 0.7}, 500, createjs.Ease.Linear)
+         .to({alpha: 1},   500, createjs.Ease.Linear)
+         .call(function() {
+            // we change display settings, so if ship is returns to safe zone we
+            // can remove warining. If he doesnt return displayWarining will be
+            // set to true more often than we set it to false
+            //
+            // Seems creepy solution but it works :P
+            if (self.displayWarning)
+               self.displayWarning = false;
+            else
+            {
+               createjs.Tween.removeTweens(self.warning);
+               self.warning.visible = false;
+               self.outOfMap = null;
+            }
+         });
+
    }
 });

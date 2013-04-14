@@ -9,7 +9,6 @@ Ses.Engine.Factory = {
             var fx = parseFloat(des.fx) || 0,
                 fy = parseFloat(des.fy) || 0;
 
-            Ses.log(des);
 
             //rock.body.ApplyImpulse(new Ses.b2Vec2(fx, fy),
             //                       rock.body.GetWorldCenter());
